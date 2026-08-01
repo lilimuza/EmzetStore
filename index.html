@@ -1,269 +1,351 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EmzetStore | By Aliemzet</title>
-    <link rel="stylesheet" href="style.css?v=99">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+// --- LOGIKA UTAMA WEBSITE (APLIKASI) ---
+let currentMainCat = "Semua";
+let currentSubCat = "";
 
-    <!-- CONTINUOUS AMBIENT BACKGROUND GLOW ANIMATION -->
-    <div class="ambient-bg">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        <div class="glow-orb orb-3"></div>
-    </div>
+// RENDER KATEGORI UTAMA
+function renderMainCategories() {
+    const container = document.getElementById('mainCategories');
+    if (!container) return;
+    container.innerHTML = "";
 
-    <!-- NAVBAR -->
-<header class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="logo">
-            <span class="logo-icon animate-spin-slow"><i class="fas fa-bolt"></i></span>
-            Emzet<span class="logo-highlight">Store</span>
-        </a>
-        
-        <nav class="nav-links" id="navLinks">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#products" class="nav-link">Katalog</a>
-            <a href="#about" class="nav-link">Tentang</a>
-        </nav>
+    if (typeof categoriesData === 'undefined') return;
 
-        <div class="nav-actions">
-            <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </div>
-</header>
+    categoriesData.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `cat-chip ${cat.name === currentMainCat ? 'active' : ''}`;
+        btn.innerHTML = `${cat.name}`;
+        btn.onclick = () => {
+            currentMainCat = cat.name;
+            currentSubCat = "";
+            renderMainCategories();
+            renderSubCategories(cat);
+            filterProducts();
+        };
+        container.appendChild(btn);
+    });
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-	
-	<div class="hero-floating-container">
-        <span class="floating-item">👜</span>
-        <span class="floating-item text-badge">🔥 Buruan Beli Sekarang!</span>
-        <span class="floating-item">👔</span>
-        <span class="floating-item text-badge">⚡ Checkout Tanpa Ragu</span>
-        <span class="floating-item">☕</span>
-        <span class="floating-item text-badge">✨ Spesial Diskon Hari Ini</span>
-        <span class="floating-item">🧴</span>
-        <span class="floating-item text-badge">💎 Terlaris & Paling Dicari</span>
-        <span class="floating-item">📚</span>
-        <span class="floating-item text-badge">🚀 Amankan Promonya</span>
-        <span class="floating-item"></span>
-        <span class="floating-item text-badge">⭐ Produk Pilihan Terbaik</span>
-    </div>
-	
-	
-        <div class="container hero-content">
-            <div class="hero-badge animate-bounce-slow">
-                <i class="fas fa-fire flame-icon"></i> Shopee & Lynk.id Curated Showcase
-            </div>
-            <h1 class="hero-title">Pusat Belanja Pilihan Terbaik di <span>EmzetStore</span></h1>
-            <p class="hero-desc">Temukan produk fisik & digital impianmu dari Shopee serta Lynk.id dengan navigasi mudah dan penawaran terbaik khusus untukmu.</p>
-            
-            <!-- Ganti bagian search-box lama dengan ini -->
-		<div class="search-box animate-pulse-border">
-			<i class="fas fa-search search-icon"></i>
-			<input type="text" id="searchInput" placeholder="Cari produk impianmu...">
-			<button class="search-btn">Cari</button>
-		</div>
-		
-        </div>
-    </section>
+    const activeCatObj = categoriesData.find(c => c.name === currentMainCat);
+    if (activeCatObj) renderSubCategories(activeCatObj);
+}
 
-    <!-- MAIN PRODUCT SECTION WITH MULTI-LEVEL CATEGORIES -->
-    <section id="products" class="container section">
-        <!-- HEADER KATALOG GAYA INTERNASIONAL (CENTERED & SLEEK) -->
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem auto; padding: 0 1rem;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 0.35rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; box-shadow: var(--shadow-glow);">
-                <i class="fas fa-crown"></i> Curated Collections
-            </div>
-            <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem; color: var(--text);">
-                Katalog Pilihan <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Eksklusif</span>
-            </h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                Jelajahi lini produk fisik dan digital pilihan terbaik yang dikurasi khusus untuk memberikan kualitas dan nilai tertinggi bagi Anda.
-            </p>
-        </div>
+// RENDER SUB-KATEGORI
+function renderSubCategories(catObj) {
+    const container = document.getElementById('subCategoriesContainer');
+    const subContainer = document.getElementById('subCategories');
+    if (!container || !subContainer) return;
+    
+    if (!catObj.subs || catObj.subs.length === 0 || currentMainCat === "Semua") {
+        container.style.display = "none";
+        return;
+    }
 
-        <!-- MAIN CATEGORIES BAR -->
-        <div class="main-categories-wrapper" style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-            <!-- PETUNJUK GESER / SWIPE HINT ELEGAN -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; padding: 0 0.2rem;">
-                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Pilih Kategori</span>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--accent); font-weight: 600; animation: bounceSlow 2s infinite;">
-                    <span>Geser</span> <i class="fas fa-hand-point-right"></i>
+    container.style.display = "block";
+    subContainer.innerHTML = "";
+
+    const allSubBtn = document.createElement('button');
+    allSubBtn.className = `sub-chip ${currentSubCat === "" ? 'active' : ''}`;
+    allSubBtn.innerHTML = `Semua ${catObj.name}`;
+    allSubBtn.onclick = () => {
+        currentSubCat = "";
+        renderSubCategories(catObj);
+        filterProducts();
+    };
+    subContainer.appendChild(allSubBtn);
+
+    catObj.subs.forEach(sub => {
+        const subBtn = document.createElement('button');
+        subBtn.className = `sub-chip ${currentSubCat === sub ? 'active' : ''}`;
+        subBtn.innerHTML = sub;
+        subBtn.onclick = () => {
+            currentSubCat = sub;
+            renderSubCategories(catObj);
+            filterProducts();
+        };
+        subContainer.appendChild(subBtn);
+    });
+}
+
+// FILTER & RENDER PRODUK
+function filterProducts() {
+    if (typeof products === 'undefined') return;
+    let result = products;
+    const searchInputElem = document.getElementById('searchInput');
+    const keyword = searchInputElem ? searchInputElem.value.toLowerCase().trim() : "";
+
+    if (currentMainCat !== "Semua") {
+        result = result.filter(p => p.category === currentMainCat);
+    }
+
+    if (currentSubCat !== "") {
+        result = result.filter(p => p.subCategory === currentSubCat);
+    }
+
+    if (keyword !== "") {
+        result = result.filter(p => 
+            p.name.toLowerCase().includes(keyword) || 
+            (p.subCategory && p.subCategory.toLowerCase().includes(keyword)) ||
+            (p.category && p.category.toLowerCase().includes(keyword)) ||
+            (p.platform && p.platform.toLowerCase().includes(keyword))
+        );
+    }
+
+    renderProducts(result);
+}
+
+// RENDER GRID PRODUK (Dengan Tombol Aksi Gradasi Senada)
+function renderProducts(data) {
+    const container = document.getElementById('product-container');
+    if (!container) return; 
+    container.innerHTML = '';
+
+    if (data.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; color: var(--text-muted);">Produk tidak ditemukan atau segera diluncurkan...</p>`;
+        return;
+    }
+
+    data.forEach(product => {
+        let shopBadgeHTML = '';
+        if (product.shopBadge === "Shopee Mall") {
+            shopBadgeHTML = `<span class="shopee-mall-badge">Mall | Ori</span>`;
+        } else if (product.shopBadge === "Star+") {
+            shopBadgeHTML = `<span class="shopee-star-plus-badge">Star+</span>`;
+        } else if (product.shopBadge === "Star") {
+            shopBadgeHTML = `<span class="shopee-star-badge">Star</span>`;
+        }
+
+        let priceHTML = `<span class="current-price">${product.price}</span>`;
+        if (product.originalPrice) {
+            priceHTML += `<span class="original-price">${product.originalPrice}</span>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="product-img-wrap" style="cursor: pointer; display: block; text-decoration: none;">
+                <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
+                <span class="product-badge">${product.badge || 'Rekomendasi'}</span>
+            </a>
+            <div class="product-body">
+                <div class="product-platform">${product.platform || 'Shopee'}</div>
+                <div class="product-title-row">
+                    ${shopBadgeHTML}
+                    <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="product-title" style="text-decoration: none; color: inherit; display: block;">${product.name}</a>
                 </div>
-            </div>
-            <div class="main-categories-scroll" id="mainCategories"></div>
-        </div>
-
-        <!-- SUB-CATEGORIES BAR -->
-        <div class="sub-categories-container" id="subCategoriesContainer" style="display: none; max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-            <div class="sub-categories-scroll" id="subCategories"></div>
-        </div>
-
-       
-       <!-- PRODUK GRID (DITENGAHKAN DENGAN KORIDOR RUANG KOSONG KIRI-KANAN) -->
-       <div style="max-width: 1200px; margin: 2rem auto 0 auto; padding: 0 1.5rem;">
-            <div id="product-container" class="product-grid"></div>
-       </div>
-    </section>
-<!-- ABOUT & SHOWCASE ANIMATION SECTION -->
-<section id="about" class="about-section container">
-    <div class="about-showcase-container animate-pulse-border" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-        
-        <!-- Efek Background Glow Sesuai Warna Logo -->
-        <div class="showcase-glow-anim" style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(2, 195, 154, 0.15); border-radius: 50%; filter: blur(40px); animation: floatOrb 6s ease-in-out infinite alternate;"></div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: center; position: relative; z-index: 2;">
-            
-            <!-- Kiri: Deskripsi & Konsep Showcase -->
-            <div>
-                <span style="display: inline-block; padding: 0.35rem 0.8rem; background: rgba(2, 195, 154, 0.1); color: #02c39a; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem;">
-                    <i class="fas fa-satellite-dish"></i> LIVE CURATED SHOWCASE
-                </span>
-                <h3 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">Pusat Kurasi Pintar & Terpercaya</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                    <strong>EmzetStore</strong> adalah etalase digital mandiri. Ketika Anda mengeklik tombol <strong>Beli</strong>, sistem cerdas kami langsung mengarahkan Anda dengan aman ke platform resmi pemilik produk (<strong>Shopee</strong> untuk produk fisik & <strong>Lynk.id</strong> untuk aset digital).
-                </p>
-                <div style="display: flex; gap: 15px; font-size: 0.85rem; font-weight: 600; color: var(--text-main);">
-                    <span><i class="fas fa-check-circle" style="color: #02c39a;"></i> Official Shopee Link</span>
-                    <span><i class="fas fa-check-circle" style="color: #028090;"></i> Instant Digital Lynk.id</span>
+                <div class="price-container">
+                    ${priceHTML}
                 </div>
-            </div>
-
-            <!-- Kanan: Animasi Alur Prosedur Affiliate (3 Langkah Interaktif) -->
-            <div style="background: rgba(0,0,0,0.03); border: 1px dashed var(--border-color); border-radius: 16px; padding: 1.5rem; text-align: center; position: relative;">
                 
-                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-sync-alt fa-spin" style="color: #02c39a;"></i> Alur Belanja Affiliate Aman
-                </div>
+                <div class="product-actions" style="display: flex; gap: 8px; margin-top: auto; padding-top: 8px;">
+                    <button onclick="openModal(${product.id})" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 10px; font-size: 0.78rem; font-weight: 700; color: #028090; background: rgba(2, 195, 154, 0.1); border: 1px solid rgba(2, 195, 154, 0.4); border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
+                        <i class="fas fa-eye"></i>
+                        <span>Detail</span>
+                    </button>
 
-                <!-- Kontainer 3 Langkah Prosedur -->
-                <div class="affiliate-steps-wrapper" style="display: flex; justify-content: space-between; align-items: center; gap: 8px; position: relative;">
-                    
-                    <!-- Langkah 1 -->
-                    <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center; animation: floatStep1 3s ease-in-out infinite;">
-                        <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(2, 195, 154, 0.4);">
-                            <i class="fas fa-hand-pointer"></i>
+                    <a href="${product.link}" target="_blank" rel="noopener noreferrer" style="flex: 1.2; display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; font-size: 0.78rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 10px; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 195, 154, 0.35);">
+                        <span>Beli</span>
+                        <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-arrow-right" style="font-size: 0.65rem;"></i>
                         </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main); margin-bottom: 2px;">1. Pilih</div>
-                        <div style="font-size: 0.6rem; color: var(--text-muted);">Klik item favorit</div>
-                    </div>
-
-                    <!-- Panah Penghubung 1 -->
-                    <div style="color: #02c39a; font-size: 0.8rem; animation: pulseArrow 1.5s infinite;"><i class="fas fa-chevron-right"></i></div>
-
-                    <!-- Langkah 2 -->
-                    <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center; animation: floatStep2 3s ease-in-out infinite; animation-delay: 0.5s;">
-                        <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(2, 195, 154, 0.4);">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main); margin-bottom: 2px;">2. Checkout</div>
-                        <div style="font-size: 0.6rem; color: var(--text-muted);">Beli via Resmi</div>
-                    </div>
-
-                    <!-- Panah Penghubung 2 -->
-                    <div style="color: #02c39a; font-size: 0.8rem; animation: pulseArrow 1.5s infinite; animation-delay: 0.75s;"><i class="fas fa-chevron-right"></i></div>
-
-                    <!-- Langkah 3 -->
-                    <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center; animation: floatStep3 3s ease-in-out infinite; animation-delay: 1s;">
-                        <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(2, 195, 154, 0.4);">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main); margin-bottom: 2px;">3. Aman</div>
-                        <div style="font-size: 0.6rem; color: var(--text-muted);">Garansi Toko</div>
-                    </div>
-
-                </div>
-
-                <div style="margin-top: 1rem; font-size: 0.82rem; font-weight: 700; color: var(--text-main);">
-                    Sistem Transaksi Langsung & Terhubung ke <span style="background: linear-gradient(135deg, #02c39a, #028090); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Official Marketplace</span>
+                    </a>
                 </div>
             </div>
+        `;
+        container.appendChild(card);
+    });
 
-        </div>
-    </div>
-</section>
+   // KARTU PENUTUP ULTIMATE STORE
+   const shopLinkUrl = typeof getActiveStoreLink === 'function' ? getActiveStoreLink(currentMainCat, currentSubCat) : "#";
 
-<!-- CSS ANIMASI Kustom untuk Alur Prosedur Affiliate -->
-<style>
-@keyframes floatStep1 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-}
-@keyframes floatStep2 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-}
-@keyframes floatStep3 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-}
-@keyframes pulseArrow {
-    0%, 100% { opacity: 0.4; transform: scale(0.9); }
-    50% { opacity: 1; transform: scale(1.2); }
-}
-@keyframes floatOrb {
-    0% { transform: translateY(0px) scale(1); }
-    100% { transform: translateY(20px) scale(1.1); }
-}
-</style>
-
-    <!-- MODAL DETAIL PRODUK -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo">Emzet<span class="logo-highlight">Store</span></a>
-                <p>Destinasi kurasi produk affiliate terlengkap dari Shopee dan Lynk.id dengan pengalaman selancar mobile yang mulus.</p>
+   const endCard = document.createElement('div');
+   endCard.className = 'end-store-card-pro';
+   endCard.innerHTML = `
+        <div class="end-store-glow-bg"></div>
+        <div class="end-store-content-pro">
+            <div class="end-store-icon-ring">
+                <i class="fas fa-store-alt"></i>
             </div>
-            <div class="footer-links">
-                <h4>Navigasi</h4>
-                <a href="#home">Beranda</a>
-                <a href="#products">Katalog</a>
-                <a href="#about">Tentang Kami</a>
-            </div>
-            <div class="footer-social">
-                <h4>Ikuti Kami</h4>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/kopi.dukasi?igsh=d3FzNW9jcjN5MTVz" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@kopidukasistore.i?_r=1&_t=ZS-98V22UTQ9k8" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
+            <h3 class="end-store-title">Official Store</h3>
+            <p class="end-store-desc">Temukan ribuan produk pilihan langsung di official Store-nya.</p>
+            
+            <a href="${shopLinkUrl}" target="_blank" rel="noopener noreferrer" class="btn-ultimate-shopee">
+                <span class="btn-shine-effect"></span>
+                <span class="btn-label-text">Selengkapnya</span>
+                <span class="btn-arrow-badge">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 EmzetStore. Seluruh tautan produk merupakan link afiliasi.</p>
+   `;
+   container.appendChild(endCard);
+}
+
+// REALTIME SEARCH INPUT LISTENER (Dengan pelindung duplikasi)
+const searchInputElem = document.getElementById('searchInput');
+if (searchInputElem && !searchInputElem.dataset.listenerAttached) {
+    searchInputElem.dataset.listenerAttached = "true";
+    searchInputElem.addEventListener('input', () => {
+        filterProducts();
+    });
+}
+
+// MODAL DETAIL PRODUK
+function openModal(id) {
+    if (typeof products === 'undefined') return;
+    const product = products.find(p => p.id === id);
+    const modal = document.getElementById('productModal');
+    const body = document.getElementById('modalBody');
+    if (!modal || !body || !product) return;
+
+    body.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
+        <span class="product-platform"><i class="fas fa-tag"></i> ${product.platform || 'Shopee'} &bull; ${product.category} (${product.subCategory})</span>
+        <h2 style="font-size: 1.15rem; font-weight: 800; margin: 0.4rem 0;">${product.name}</h2>
+        <div class="price-container" style="margin-bottom:0.75rem;">
+            <span class="current-price" style="font-size:1.1rem;">${product.price}</span>
+            ${product.originalPrice ? `<span class="original-price">${product.originalPrice}</span>` : ''}
         </div>
-    </footer>
+        <p style="color:var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">${product.description || 'Silakan cek langsung detail lengkap produk ini melalui tombol di bawah.'}</p>
+        
+        <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="modal-cta-buy">
+            <span>Amankan Promo & Beli Sekarang via ${product.platform || 'Shopee'}</span> 
+            <i class="fas fa-hand-point-right pointing-icon" style="font-size: 1.1rem;"></i>
+        </a>
+    `;
+    modal.style.display = 'flex';
+}
 
-<!-- Audio Otomatis (Autoplay) tanpa tombol -->
-<audio id="bgMusic" src="song.mp3" preload="auto" loop></audio>
+const closeModalBtn = document.querySelector('.close-modal');
+if (closeModalBtn) {
+    closeModalBtn.onclick = () => {
+        const modal = document.getElementById('productModal');
+        if (modal) modal.style.display = 'none';
+    };
+}
 
-<!-- 1. Panggil data kategori terlebih dahulu -->
-<script src="categories.js"></script>
+window.onclick = (e) => {
+    const modal = document.getElementById('productModal');
+    if (e.target === modal) modal.style.display = 'none';
+};
 
-<!-- 2. Panggil file data produk -->
-<script src="products.js"></script>
+// NAVBAR SCROLL & MOBILE MENU TOGGLE
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    if (window.scrollY > 30) {
+        navbar.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)";
+    } else {
+        navbar.style.boxShadow = "none";
+    }
+});
 
-<!-- 3. Terakhir panggil logika utama website -->
-<script src="app.js"></script>
-</body>
-</html>
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.onclick = (e) => {
+        e.stopPropagation();
+        navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
+    };
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.onclick = () => {
+            if (window.innerWidth < 768) {
+                navLinks.style.display = 'none';
+            }
+        };
+    });
+}
+
+// THEME TOGGLE
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+    themeToggle.onclick = () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'light') {
+            document.documentElement.removeAttribute('data-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'light');
+        }
+    };
+}
+
+if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+// Inisialisasi awal aplikasi saat DOM siap
+document.addEventListener("DOMContentLoaded", () => {
+    renderMainCategories();
+    filterProducts();
+    typeSearchPlaceholder();
+});
+
+// --- EFEK MENGETIK PADA SEARCH PLACEHOLDER ---
+const searchWords = [
+    "Cari produk Shinzui...", 
+    "Cari E-Book & Template...", 
+    "Cari Kemeja & Fashion...", 
+    "Cari Skintific & Skincare...", 
+    "Cari Earphone TWS..."
+];
+let wordIdx = 0;
+let charIdx = 0;
+let isDeleting = false;
+
+function typeSearchPlaceholder() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+    const currentWord = searchWords[wordIdx];
+    
+    if (isDeleting) {
+        searchInput.setAttribute('placeholder', currentWord.substring(0, charIdx - 1));
+        charIdx--;
+    } else {
+        searchInput.setAttribute('placeholder', currentWord.substring(0, charIdx + 1));
+        charIdx++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIdx === currentWord.length) {
+        typeSpeed = 2000; 
+        isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        wordIdx = (wordIdx + 1) % searchWords.length;
+        typeSpeed = 500;
+    }
+
+    setTimeout(typeSearchPlaceholder, typeSpeed);
+}
+
+// --- PENGELOLAAN MUSIK LATAR (AUTO-PLAY & AUTO-STOP) ---
+const bgMusic = document.getElementById('bgMusic');
+
+if (bgMusic) {
+    bgMusic.volume = 0.5;
+
+    const startAudio = () => {
+        bgMusic.play().then(() => {
+            window.removeEventListener('click', startAudio);
+            window.removeEventListener('touchstart', startAudio);
+            window.removeEventListener('scroll', startAudio);
+        }).catch(err => {
+            // Mengabaikan penolakan kebijakan pemutaran otomatis browser
+        });
+    };
+
+    window.addEventListener('click', startAudio);
+    window.addEventListener('touchstart', startAudio);
+    window.addEventListener('scroll', startAudio, { once: true });
+
+    window.addEventListener('beforeunload', () => {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    });
+}
