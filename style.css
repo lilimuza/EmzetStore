@@ -1551,190 +1551,271 @@ body {
 .flow-step-item:hover .step-icon-box {
     transform: rotate(12deg) scale(1.1);
 }
-
 /* =========================================================
-   EMZET STORE - ULTRA PROFESSIONAL MOBILE UI & FOOTER
+   EMZET STORE - PERFECT CENTER MOBILE ALIGNMENT
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* --- 1. HERO & PUSAT KURASI (Clean & Symmetric) --- */
+    /* --- 1. MEMBUAT CARD UTAMA SIMETRIS KIRI & KANAN --- */
     .hero-card,
     .curation-card,
-    .process-container {
-        padding: 1.75rem 1rem !important;
-        margin-left: 0.75rem !important;
-        margin-right: 0.75rem !important;
-        border-radius: 20px !important;
+    div[class*="curation"],
+    div[class*="process-card"] {
+        width: calc(100% - 2rem) !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 1.5rem 1rem !important;
         box-sizing: border-box !important;
-        background: #ffffff !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+        border-radius: 20px !important;
     }
 
-    .hero-card h2,
-    .curation-card h2 {
-        font-size: 1.3rem !important;
-        font-weight: 800 !important;
+    /* Outer Box Alur Belanja (Di dalam Card Utama) */
+    div[class*="alur"],
+    div[class*="process-box"],
+    div[class*="step-wrapper"] {
+        width: 100% !important;
+        margin: 1rem auto 0 auto !important;
+        padding: 1.25rem 0.5rem !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Paksa konten judul alur ke tengah */
+    }
+
+    /* Judul Alur Belanja (ALUR BELANJA AFFILIATE AMAN) */
+    div[class*="alur"] h3,
+    div[class*="alur"] h4,
+    div[class*="process"] h3,
+    div[class*="process"] h4,
+    .process-title {
         text-align: center !important;
-        letter-spacing: -0.02em !important;
-        color: #0f172a !important;
+        width: 100% !important;
+        margin: 0 auto 1rem auto !important;
     }
 
-    .hero-card p,
-    .curation-card p {
-        font-size: 0.85rem !important;
-        line-height: 1.6 !important;
-        text-align: center !important;
-        color: #475569 !important;
-        margin-top: 0.5rem !important;
-    }
-
-    /* --- 2. ALUR BELANJA DENGAN GARIS PENYALUR & ARROW --- */
-    
-    /* Container Scrollable dengan Padding Luas agar Shadow Card Tidak Terpotong */
+    /* --- 2. MEMBUAT KARTU 01, 02, 03 CENTER PRESISI --- */
     .process-steps-wrapper,
     .steps-grid,
-    div[class*="steps"] {
+    div[class*="steps-"] {
         display: flex !important;
         flex-direction: row !important;
+        justify-content: center !important; /* PAKSA RATA TENGAH */
         align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0.5rem 0 !important;
+        box-sizing: border-box !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
-        gap: 0.75rem !important;
-        padding: 1rem 0.75rem !important;
-        margin-top: 0.75rem !important;
-        position: relative !important;
         -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important; /* Hide Scrollbar Firefox */
     }
 
-    .process-steps-wrapper::-webkit-scrollbar,
-    .steps-grid::-webkit-scrollbar {
-        display: none !important; /* Hide Scrollbar Chrome/Safari */
+    /* Jika layar sangat kecil (di bawah 380px), tambahkan sedikit ruang scroll */
+    @media (max-width: 380px) {
+        .process-steps-wrapper,
+        .steps-grid,
+        div[class*="steps-"] {
+            justify-content: flex-start !important;
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
     }
 
-    /* Step Card Berlayar Presisi */
+    /* Kartu Per Langkah (01, 02, 03) */
     .step-card,
     div[class*="step-card"] {
-        flex: 0 0 68% !important; /* Proporsi sempurna untuk intipan kartu berikutnya */
+        flex: 0 0 28% !important; /* Ukuran pas untuk 3 kartu sejajar di HP */
+        min-width: 85px !important;
         scroll-snap-align: center !important;
-        background: #ffffff !important;
-        border: 1px solid rgba(2, 195, 154, 0.25) !important;
-        border-radius: 16px !important;
-        padding: 1.25rem 0.85rem !important;
-        box-shadow: 0 4px 20px rgba(2, 195, 154, 0.08) !important;
+        padding: 0.75rem 0.25rem !important;
+        margin: 0 !important;
         text-align: center !important;
-        position: relative !important;
-        z-index: 2 !important;
+        box-sizing: border-box !important;
     }
 
-    /* Ikon Bulat Penyalur / Garis Panah di Luar Card */
+    /* Panah Penyalur Antar Kartu */
     .step-arrow,
     div[class*="arrow"] {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
         flex: 0 0 auto !important;
-        width: 28px !important;
-        height: 28px !important;
-        border-radius: 50% !important;
-        background: #e6f9f5 !important;
-        color: #02c39a !important;
-        font-size: 0.75rem !important;
-        z-index: 2 !important;
+        margin: 0 2px !important;
     }
 
-    /* --- 3. SUPER-PROFESSIONAL ENTERPRISE FOOTER --- */
-    
+    /* --- 3. FOOTER SUPER CLEAN & CENTER --- */
     footer {
-        margin-top: 3.5rem !important;
-        padding: 3rem 1.5rem 2.5rem !important;
-        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+        width: 100% !important;
+        margin-top: 3rem !important;
+        padding: 2.5rem 1.25rem 2.5rem !important;
+        background: #f8fafc !important;
         border-top: 1px solid #e2e8f0 !important;
-        border-radius: 28px 28px 0 0 !important;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        box-sizing: border-box !important;
     }
 
     .footer-content,
-    .footer-grid {
+    .footer-grid,
+    footer > div {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        gap: 1.75rem !important;
-        max-width: 360px !important;
+        gap: 1.25rem !important;
+        width: 100% !important;
         margin: 0 auto !important;
     }
 
-    /* Brand Header di Footer */
-    .footer-brand {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    .footer-brand p {
-        font-size: 0.85rem !important;
-        line-height: 1.55 !important;
-        color: #64748b !important;
-        margin-top: 0.5rem !important;
-    }
-
-    /* Navigasi Horizontal Rapi dengan Divider */
     .footer-links ul {
         display: flex !important;
-        flex-wrap: wrap !important;
         justify-content: center !important;
-        align-items: center !important;
-        gap: 1rem !important;
+        gap: 1.25rem !important;
         list-style: none !important;
         padding: 0 !important;
         margin: 0 !important;
     }
 
-    .footer-links a {
-        font-size: 0.85rem !important;
-        font-weight: 600 !important;
-        color: #334155 !important;
-        text-decoration: none !important;
-        transition: color 0.2s ease !important;
-    }
-
-    /* Media Sosial Icons */
-    .footer-social .social-icons {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 0.85rem !important;
-    }
-
-    .footer-social a {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 38px !important;
-        height: 38px !important;
-        border-radius: 50% !important;
-        background: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
-    }
-
-    /* Copyright Bar Legah & Terstruktur (Anti-Numpuk) */
     .footer-bottom,
-    footer > p,
-    footer div:last-child p {
-        margin-top: 2rem !important;
-        padding-top: 1.5rem !important;
+    footer p:last-child {
+        margin-top: 1.5rem !important;
+        padding-top: 1.25rem !important;
         border-top: 1px solid #e2e8f0 !important;
         font-size: 0.78rem !important;
-        line-height: 1.6 !important;
         color: #94a3b8 !important;
         text-align: center !important;
-        word-break: keep-all !important;
-        overflow-wrap: break-word !important;
         width: 100% !important;
-        max-width: 320px !important;
+        box-sizing: border-box !important;
+    }
+}
+/* =========================================================
+   EMZET STORE - PERFECT CENTER MOBILE ALIGNMENT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* --- 1. MEMBUAT CARD UTAMA SIMETRIS KIRI & KANAN --- */
+    .hero-card,
+    .curation-card,
+    div[class*="curation"],
+    div[class*="process-card"] {
+        width: calc(100% - 2rem) !important;
+        max-width: 100% !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        padding: 1.5rem 1rem !important;
+        box-sizing: border-box !important;
+        border-radius: 20px !important;
+    }
+
+    /* Outer Box Alur Belanja (Di dalam Card Utama) */
+    div[class*="alur"],
+    div[class*="process-box"],
+    div[class*="step-wrapper"] {
+        width: 100% !important;
+        margin: 1rem auto 0 auto !important;
+        padding: 1.25rem 0.5rem !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Paksa konten judul alur ke tengah */
+    }
+
+    /* Judul Alur Belanja (ALUR BELANJA AFFILIATE AMAN) */
+    div[class*="alur"] h3,
+    div[class*="alur"] h4,
+    div[class*="process"] h3,
+    div[class*="process"] h4,
+    .process-title {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto 1rem auto !important;
+    }
+
+    /* --- 2. MEMBUAT KARTU 01, 02, 03 CENTER PRESISI --- */
+    .process-steps-wrapper,
+    .steps-grid,
+    div[class*="steps-"] {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important; /* PAKSA RATA TENGAH */
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0.5rem 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Jika layar sangat kecil (di bawah 380px), tambahkan sedikit ruang scroll */
+    @media (max-width: 380px) {
+        .process-steps-wrapper,
+        .steps-grid,
+        div[class*="steps-"] {
+            justify-content: flex-start !important;
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+    }
+
+    /* Kartu Per Langkah (01, 02, 03) */
+    .step-card,
+    div[class*="step-card"] {
+        flex: 0 0 28% !important; /* Ukuran pas untuk 3 kartu sejajar di HP */
+        min-width: 85px !important;
+        scroll-snap-align: center !important;
+        padding: 0.75rem 0.25rem !important;
+        margin: 0 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Panah Penyalur Antar Kartu */
+    .step-arrow,
+    div[class*="arrow"] {
+        flex: 0 0 auto !important;
+        margin: 0 2px !important;
+    }
+
+    /* --- 3. FOOTER SUPER CLEAN & CENTER --- */
+    footer {
+        width: 100% !important;
+        margin-top: 3rem !important;
+        padding: 2.5rem 1.25rem 2.5rem !important;
+        background: #f8fafc !important;
+        border-top: 1px solid #e2e8f0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .footer-content,
+    .footer-grid,
+    footer > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .footer-links ul {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1.25rem !important;
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .footer-bottom,
+    footer p:last-child {
+        margin-top: 1.5rem !important;
+        padding-top: 1.25rem !important;
+        border-top: 1px solid #e2e8f0 !important;
+        font-size: 0.78rem !important;
+        color: #94a3b8 !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
