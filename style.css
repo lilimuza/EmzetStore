@@ -52,7 +52,7 @@ body {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 0.75rem;
 }
 
 @media(min-width: 768px) {
@@ -452,22 +452,22 @@ body {
 /* ==========================================
    7. CATEGORIES & SUB-CATEGORIES
    ================================---------- */
-.section { padding: 3rem 0; }
+.section { padding: 2rem 0; }
 .section-header { margin-bottom: 1.2rem; }
-.section-heading { font-size: 1.5rem; font-weight: 800; }
-.section-sub { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem; }
+.section-heading { font-size: 1.35rem; font-weight: 800; }
+.section-sub { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem; }
 
 .main-categories-wrapper {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .main-categories-scroll {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 0.4rem 0.2rem 0.8rem 0.2rem;
+    padding: 0.4rem 0.1rem 0.6rem 0.1rem;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -486,12 +486,12 @@ body {
 }
 
 .cat-chip {
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 50px;
     border: 1px solid var(--border);
     background: var(--card-bg);
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
@@ -510,27 +510,27 @@ body {
 .sub-categories-container {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
+    border-radius: 14px;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1.2rem;
     backdrop-filter: blur(10px);
 }
 
 .sub-categories-scroll {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     overflow-x: auto;
     scrollbar-width: none;
 }
 .sub-categories-scroll::-webkit-scrollbar { display: none; }
 
 .sub-chip {
-    padding: 0.4rem 0.9rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 30px;
     border: 1px solid var(--border);
     background: var(--bg);
     color: var(--text-muted);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 500;
     white-space: nowrap;
     cursor: pointer;
@@ -544,12 +544,12 @@ body {
 }
 
 /* ==========================================
-   8. PRODUCT CARDS, GRID & SHOP BADGES
+   8. PRODUCT CARDS, GRID & SHOP BADGES (PERBAIKAN HP RESPONSIVE)
    ================================---------- */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 8px;
     width: 100%;
 }
 
@@ -564,14 +564,14 @@ body {
 .product-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(12px);
     transition: var(--transition);
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .product-card:hover {
@@ -581,7 +581,7 @@ body {
 }
 
 .product-img-wrap {
-    height: 150px;
+    height: 135px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -618,14 +618,14 @@ body {
 
 .product-badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 8px;
+    left: 8px;
     background: linear-gradient(90deg, #000 0%, #333 50%, #000 100%);
     background-size: 200% 100%;
     animation: shimmer 3s infinite linear;
     color: #fff;
-    padding: 0.3rem 0.75rem;
-    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
     font-weight: 700;
     border-radius: 50px;
     z-index: 2;
@@ -633,7 +633,7 @@ body {
 }
 
 .product-body {
-    padding: 0.8rem;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -644,11 +644,11 @@ body {
 }
 
 .product-platform {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: var(--accent);
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.1rem;
 }
 
 @media(min-width: 768px) {
@@ -659,15 +659,15 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 4px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .shopee-mall-badge {
     background-color: #d0011b;
     color: #fff;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    padding: 1px 4px;
+    padding: 1px 3px;
     border-radius: 2px;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -677,9 +677,9 @@ body {
 .shopee-star-plus-badge {
     background-color: #ee4d2d;
     color: #fff;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    padding: 1px 4px;
+    padding: 1px 3px;
     border-radius: 2px;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -689,9 +689,9 @@ body {
 .shopee-star-badge {
     background-color: #ff5722;
     color: #fff;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    padding: 1px 4px;
+    padding: 1px 3px;
     border-radius: 2px;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -699,15 +699,15 @@ body {
 }
 
 .product-title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     cursor: pointer;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 @media(min-width: 768px) {
@@ -717,46 +717,45 @@ body {
 .price-container {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     flex-wrap: wrap;
-    margin-top: 4px;
-    margin-bottom: 0.6rem;
+    margin-top: auto;
+    margin-bottom: 0.5rem;
 }
 
 .current-price {
     color: #ee4d2d;
-    font-size: 15px;
+    font-size: 0.85rem;
     font-weight: 700;
+}
+
+@media(min-width: 768px) {
+    .current-price { font-size: 1rem; }
 }
 
 .original-price {
     color: #999;
-    font-size: 12px;
+    font-size: 0.7rem;
     text-decoration: line-through;
 }
 
-/* Product Actions & Aesthetic CTA Buttons */
+/* Product Actions & Aesthetic CTA Buttons (Dioptimalkan agar tombol tidak terpotong di HP) */
 .product-actions {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
     margin-top: auto;
 }
 
-@media(min-width: 500px) {
-    .product-actions { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
-}
-
-/* DIPERBAIKI: Tombol Selengkapnya agar rapi, sejajar, dan tidak turun baris */
 .btn-detail {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     white-space: nowrap;
-    padding: 0.45rem 0.8rem;
-    border-radius: 8px;
-    font-size: 0.72rem;
+    padding: 0.35rem 0.4rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
@@ -765,6 +764,10 @@ body {
     border: 1px solid var(--border);
     color: var(--text);
     transition: var(--transition);
+}
+
+@media(min-width: 768px) {
+    .btn-detail { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
 }
 
 .btn-detail:hover { background: rgba(255,255,255,0.05); }
@@ -779,18 +782,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.35rem 0.4rem;
     background: linear-gradient(135deg, #02c39a, #028090);
     color: #ffffff;
     font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 12px;
+    font-size: 0.7rem;
+    border-radius: 6px;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(2, 195, 154, 0.4);
+    box-shadow: 0 3px 10px rgba(2, 195, 154, 0.3);
     animation: pulseButton 2s infinite ease-in-out;
     transition: transform 0.2s ease;
+}
+
+@media(min-width: 768px) {
+    .cta-detail-btn, .cta-buy-aesthetic { padding: 0.75rem 1rem; font-size: 0.9rem; border-radius: 12px; }
 }
 
 .cta-detail-btn:hover, .cta-buy-aesthetic:hover {
