@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EmzetStore | By Aliemzet</title>
     <!-- Cache busting diperbarui agar memaksa browser memuat ulang CSS terbaru -->
-    <link rel="stylesheet" href="style.css?v=2026.08.01-fix">
+    <link rel="stylesheet" href="style.css?v=2026.08.02-pro">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,8 +95,12 @@
         <div class="main-categories-wrapper" style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; padding: 0 0.2rem;">
                 <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Pilih Kategori</span>
-                <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--accent); font-weight: 600;">
-                    <span>Geser</span> <i class="fas fa-hand-point-right"></i>
+                
+                <!-- INDIKATOR GESER BARU (FLOATING GLASS BADGE) -->
+                <div class="scroll-hint-badge">
+                    <i class="fas fa-hand-pointer swipe-icon"></i>
+                    <span>Geser kategori</span>
+                    <i class="fas fa-chevron-right arrow-indicator"></i>
                 </div>
             </div>
             <div class="main-categories-scroll" id="mainCategories"></div>
@@ -108,67 +112,101 @@
         </div>
 
         <!-- PRODUK GRID -->
-        <div style="max-width: 1200px; margin: 2rem auto 0 auto; padding: 0 1.5rem;">
+        <div style="max-width: 1200px; margin: 2rem auto 0 auto; padding: 0 1rem;">
             <div id="product-container" class="product-grid"></div>
         </div>
     </section>
 
     <!-- ABOUT & SHOWCASE ANIMATION SECTION -->
-    <section id="about" class="about-section container">
-        <div class="about-showcase-container animate-pulse-border" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-            <div class="showcase-glow-anim" style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(2, 195, 154, 0.15); border-radius: 50%; filter: blur(40px);"></div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: center; position: relative; z-index: 2;">
-                <div>
-                    <span style="display: inline-block; padding: 0.35rem 0.8rem; background: rgba(2, 195, 154, 0.1); color: #02c39a; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem;">
-                        <i class="fas fa-satellite-dish"></i> LIVE CURATED SHOWCASE
-                    </span>
-                    <h3 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: var(--text);">Pusat Kurasi Pintar & Terpercaya</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                        <strong>EmzetStore</strong> adalah etalase digital mandiri. Ketika Anda mengeklik tombol <strong>Beli</strong>, sistem cerdas kami langsung mengarahkan Anda dengan aman ke platform resmi pemilik produk.
-                    </p>
-                    <div style="display: flex; gap: 15px; font-size: 0.85rem; font-weight: 600; color: var(--text);">
-                        <span><i class="fas fa-check-circle" style="color: #02c39a;"></i> Official Shopee Link</span>
-                        <span><i class="fas fa-check-circle" style="color: #028090;"></i> Instant Digital Lynk.id</span>
-                    </div>
-                </div>
-
-                <div style="background: rgba(0,0,0,0.03); border: 1px dashed var(--border-color); border-radius: 16px; padding: 1.5rem; text-align: center; position: relative;">
-                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-sync-alt fa-spin" style="color: #02c39a;"></i> Alur Belanja Affiliate Aman
-                    </div>
-
-                    <div class="affiliate-steps-wrapper" style="display: flex; justify-content: space-between; align-items: center; gap: 8px; position: relative;">
-                        <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center;">
-                            <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
-                                <i class="fas fa-hand-pointer"></i>
-                            </div>
-                            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text); margin-bottom: 2px;">1. Pilih</div>
-                            <div style="font-size: 0.6rem; color: var(--text-muted);">Klik item favorit</div>
-                        </div>
-
-                        <div style="color: #02c39a; font-size: 0.8rem;"><i class="fas fa-chevron-right"></i></div>
-
-                        <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center;">
-                            <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text); margin-bottom: 2px;">2. Checkout</div>
-                            <div style="font-size: 0.6rem; color: var(--text-muted);">Beli via Resmi</div>
-                        </div>
-
-                        <div style="color: #02c39a; font-size: 0.8rem;"><i class="fas fa-chevron-right"></i></div>
-
-                        <div class="affiliate-step-card" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(2, 195, 154, 0.3); border-radius: 12px; padding: 12px 6px; text-align: center;">
-                            <div style="width: 36px; height: 36px; margin: 0 auto 8px auto; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text); margin-bottom: 2px;">3. Aman</div>
-                            <div style="font-size: 0.6rem; color: var(--text-muted);">Garansi Toko</div>
-                        </div>
-                    </div>
+    <section id="about" class="about-section container" style="margin-top: 3rem; margin-bottom: 3rem;">
+        <div class="about-showcase-container">
+            
+            <!-- Left Column: Content -->
+            <div class="about-info">
+                <span class="live-badge">
+                    <i class="fas fa-satellite-dish"></i> LIVE CURATED SHOWCASE
+                </span>
+                <h3 class="about-title">Pusat Kurasi Pintar & Terpercaya</h3>
+                <p class="about-desc">
+                    <strong>EmzetStore</strong> adalah etalase digital mandiri. Ketika Anda mengeklik tombol <strong>Beli</strong>, sistem cerdas kami langsung mengarahkan Anda dengan aman ke platform resmi pemilik produk.
+                </p>
+                <div class="about-features">
+                    <span><i class="fas fa-check-circle"></i> Official Shopee Link</span>
+                    <span><i class="fas fa-check-circle"></i> Instant Digital Lynk.id</span>
                 </div>
             </div>
+
+            <!-- Right Column: Interactive Process Workflow Card -->
+            <div class="flow-card-container">
+                <div class="flow-card-header">
+                    <i class="fas fa-sync-alt spin-icon"></i>
+                    <span>ALUR BELANJA AFFILIATE AMAN</span>
+                </div>
+
+                <!-- GARIS LASER PROGRESS UTAMA -->
+                <div class="flow-laser-line">
+                    <div class="laser-beam"></div>
+                </div>
+
+                <!-- Workflow Process Grid -->
+                <div class="flow-steps-grid">
+                    
+                    <!-- STEP 1 -->
+                    <div class="flow-step-item step-1">
+                        <span class="step-badge">01</span>
+                        <div class="step-icon-box">
+                            <i class="fas fa-hand-pointer"></i>
+                            <div class="ripple-ring"></div>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-num">Pilih</span>
+                            <p class="step-text">Klik item favorit</p>
+                        </div>
+                    </div>
+
+                    <!-- CONNECTOR 1 -->
+                    <div class="flow-arrow-connector">
+                        <div class="arrow-pulse">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="flow-step-item step-2">
+                        <span class="step-badge">02</span>
+                        <div class="step-icon-box">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div class="ripple-ring"></div>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-num">Checkout</span>
+                            <p class="step-text">Beli via Resmi</p>
+                        </div>
+                    </div>
+
+                    <!-- CONNECTOR 2 -->
+                    <div class="flow-arrow-connector">
+                        <div class="arrow-pulse">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="flow-step-item step-3">
+                        <span class="step-badge">03</span>
+                        <div class="step-icon-box">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="ripple-ring"></div>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-num">Aman</span>
+                            <p class="step-text">Garansi Toko</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -185,7 +223,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <a href="#" class="logo">Emzet<span class="logo-highlight">Store</span></a>
-                <p>Destinasi kurasi produk affiliate terlengkap dari Shopee dan Lynk.id dengan pengalaman selancar mobile yang mulus.</p>
+                <p>Destinasi kurasi produk affiliate dari Shopee dan Lynk.id dengan pengalaman selancar mobile yang mulus.</p>
             </div>
             <div class="footer-links">
                 <h4>Navigasi</h4>
@@ -196,8 +234,8 @@
             <div class="footer-social">
                 <h4>Ikuti Kami</h4>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/kopi.dukasi?igsh=d3FzNW9jcjN5MTVz" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@kopidukasistore.i?_r=1&_t=ZS-98V22UTQ9k8" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/kopi.dukasi?igsh=d3FzNW9jcjN5MTVz" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@kopidukasistore.i?_r=1&_t=ZS-98V22UTQ9k8" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
