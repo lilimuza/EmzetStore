@@ -153,26 +153,26 @@ function renderProducts(data) {
         container.appendChild(card);
     });
 
-   // KARTU PENUTUP ULTIMATE STORE
+ // KARTU PENUTUP ULTIMATE STORE (Diperbaiki agar bentuknya kotak & rapi)
    const shopLinkUrl = typeof getActiveStoreLink === 'function' ? getActiveStoreLink(currentMainCat, currentSubCat) : "#";
 
    const endCard = document.createElement('div');
-   endCard.className = 'end-store-card-pro';
+   endCard.className = 'product-card end-store-card-pro'; // Menggunakan basis class product-card agar ukurannya seragam
+   endCard.style.cssText = "display: flex; flex-direction: column; justify-content: space-between; text-align: center; padding: 20px; background: var(--card-bg, #ffffff); border: 1px solid var(--border-color, rgba(0,0,0,0.1)); border-radius: 16px;";
+   
    endCard.innerHTML = `
-        <div class="end-store-glow-bg"></div>
-        <div class="end-store-content-pro">
-            <div class="end-store-icon-ring">
+        <div class="end-store-content-pro" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 10px;">
+            <div class="end-store-icon-ring" style="width: 45px; height: 45px; background: rgba(2, 195, 154, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #028090; font-size: 1.1rem; margin-bottom: 2px;">
                 <i class="fas fa-store-alt"></i>
             </div>
-            <h3 class="end-store-title">Official Store</h3>
-            <p class="end-store-desc">Temukan ribuan produk pilihan langsung di official Store-nya.</p>
+            <h3 class="end-store-title" style="font-size: 1rem; font-weight: 800; margin: 0; color: var(--text-main);">Official Store</h3>
+            <p class="end-store-desc" style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; margin: 0 0 10px 0;">Temukan ribuan produk pilihan langsung di official Store-nya.</p>
             
-            <a href="${shopLinkUrl}" target="_blank" rel="noopener noreferrer" class="btn-ultimate-shopee">
-                <span class="btn-shine-effect"></span>
-                <span class="btn-label-text">Selengkapnya</span>
-                <span class="btn-arrow-badge">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
+            <a href="${shopLinkUrl}" target="_blank" rel="noopener noreferrer" class="btn-ultimate-shopee" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; font-size: 0.8rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 12px; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 195, 154, 0.35); margin-top: auto;">
+                <span>Selengkapnya</span>
+                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-arrow-right" style="font-size: 0.65rem;"></i>
+                </div>
             </a>
         </div>
    `;
