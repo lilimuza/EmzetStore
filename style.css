@@ -449,97 +449,173 @@ body {
 .floating-item:nth-child(8)  { left: 85%; animation-duration: 10.5s;animation-delay: 1s; }
 .floating-item:nth-child(9)  { left: 93%; animation-duration: 8s;  animation-delay: 3.5s; }
 
+
 /* ==========================================
-   7. CATEGORIES & SUB-CATEGORIES
+   7. CATEGORIES & SUB-CATEGORIES (PERBAIKAN)
    ================================---------- */
-.section { padding: 2rem 0; }
-.section-header { margin-bottom: 1.2rem; }
-.section-heading { font-size: 1.35rem; font-weight: 800; }
-.section-sub { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem; }
+.section { 
+    padding: 2rem 0; 
+}
+.section-header { 
+    margin-bottom: 1.2rem; 
+}
+.section-heading { 
+    font-size: 1.35rem; 
+    font-weight: 800; 
+}
+.section-sub { 
+    color: var(--text-muted); 
+    font-size: 0.8rem; 
+    margin-top: 0.2rem; 
+}
 
 .main-categories-wrapper {
     position: relative;
     margin-bottom: 0.8rem;
 }
 
+/* Container Scroll Kategori Utama */
 .main-categories-scroll {
     display: flex;
-    gap: 8px;
+    align-items: center; /* Memastikan semua chip lurus sejajar di tengah */
+    gap: 10px; /* Jarak antar tombol konsisten */
     overflow-x: auto;
     white-space: nowrap;
-    padding: 0.4rem 0.1rem 0.6rem 0.1rem;
+    padding: 0.5rem 0.2rem;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox */
 }
-.main-categories-scroll::-webkit-scrollbar { display: none; }
+.main-categories-scroll::-webkit-scrollbar { 
+    display: none; /* Chrome, Safari, Opera */
+}
+/* =========================================================
+   SCROLL HINT BADGE (INDIKATOR GESER MODERN)
+   ========================================================= */
 
-.scroll-hint-indicator {
-    display: flex;
+.scroll-hint-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    padding: 0.35rem 0.85rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(2, 195, 154, 0.3);
+    border-radius: 50px;
+    color: #02c39a;
     font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-    animation: bounceSlow 2s ease-in-out infinite;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(2, 195, 154, 0.12);
+    transition: var(--transition, all 0.3s ease);
 }
 
+/* Animasi Ikon Tangan Bergerak Kiri-Kanan */
+.swipe-icon {
+    font-size: 0.82rem;
+    animation: swipeHand 1.8s infinite ease-in-out;
+}
+
+@keyframes swipeHand {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(5px) rotate(-8deg); }
+}
+
+/* Animasi Panah Kanan Mengalir */
+.arrow-indicator {
+    font-size: 0.68rem;
+    opacity: 0.6;
+    animation: arrowPulse 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes arrowPulse {
+    0% { transform: translateX(0); opacity: 0.4; }
+    100% { transform: translateX(4px); opacity: 1; }
+}
+
+/* Sembunyikan indikator ini pada layar PC/Desktop (Layar > 992px) */
+@media (min-width: 993px) {
+    .scroll-hint-badge {
+        display: none !important;
+    }
+}
+
+/* Kategori Utama (Chip Pill) */
 .cat-chip {
-    padding: 0.45rem 0.9rem;
-    border-radius: 50px;
+    /* Flexbox wajib untuk posisi teks presisi di tengah */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px; /* Bentuk pill mulus */
     border: 1px solid var(--border);
     background: var(--card-bg);
     color: var(--text-muted);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
+    line-height: 1; /* Hapus offset vertikal font bawaan */
     white-space: nowrap;
     cursor: pointer;
     transition: var(--transition);
     flex-shrink: 0;
+    user-select: none;
 }
 
 .cat-chip.active, .cat-chip:hover {
     background: var(--gradient-primary);
-    color: white;
+    color: #ffffff;
     border-color: transparent;
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
 }
 
+/* Sub-Kategori Container */
 .sub-categories-container {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 0.6rem 0.8rem;
+    border-radius: 16px;
+    padding: 0.75rem 0.9rem;
     margin-bottom: 1.2rem;
     backdrop-filter: blur(10px);
 }
 
 .sub-categories-scroll {
     display: flex;
-    gap: 0.4rem;
+    align-items: center;
+    gap: 8px;
     overflow-x: auto;
     scrollbar-width: none;
+    padding: 2px 0;
 }
-.sub-categories-scroll::-webkit-scrollbar { display: none; }
+.sub-categories-scroll::-webkit-scrollbar { 
+    display: none; 
+}
 
+/* Sub-Kategori (Chip Button) */
 .sub-chip {
-    padding: 0.35rem 0.8rem;
-    border-radius: 30px;
+    /* Alignment teks tengah sempurna */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.45rem 0.95rem;
+    border-radius: 9999px;
     border: 1px solid var(--border);
     background: var(--bg);
     color: var(--text-muted);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
+    line-height: 1;
     white-space: nowrap;
     cursor: pointer;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .sub-chip.active, .sub-chip:hover {
     background: var(--accent);
-    color: white;
+    color: #ffffff;
     border-color: var(--accent);
 }
 
@@ -1108,4 +1184,370 @@ body {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.5); }
     50% { transform: scale(1.02); box-shadow: 0 0 18px 6px rgba(238, 77, 45, 0.3); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 77, 45, 0); }
+}
+/* --- LAYOUT GRID PRODUK PERSEGI & KONSISTEN (STYLE SHOPEE) --- */
+#product-container {
+    display: grid;
+    /* Membuat 2 kolom di HP & otomatis bertambah di layar lebar */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+    align-items: stretch; /* PENTING: Memaksa semua kotak memiliki tinggi rata & seragam */
+    margin-top: 15px;
+}
+
+/* Memastikan kartu produk mengisi tinggi grid secara penuh */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Untuk layar PC/Desktop (Layar > 768px): Tampilan bisa 4 atau 5 kolom */
+@media (min-width: 768px) {
+    #product-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+}
+/* =========================================================
+   ANIMASI INTERAKSI TOMBOL-TOMBOL (KATEGORI & AKSI PRODUK)
+   ========================================================= */
+
+/* --- 1. Tombol Kategori Utama & Sub-Kategori (Chip Button) --- */
+.cat-chip, .sub-chip {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Efek Hover Kategori: Terangkat sedikit & bayangan lembut */
+.cat-chip:hover, .sub-chip:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(2, 195, 154, 0.25);
+}
+
+/* Efek Tekan (Active/Click) Kategori */
+.cat-chip:active, .sub-chip:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* --- 2. Tombol Detail (Modal) pada Kartu Produk --- */
+.product-actions button {
+    transition: all 0.25s ease-in-out !important;
+    position: relative;
+}
+
+.product-actions button:hover {
+    background: rgba(2, 195, 154, 0.22) !important;
+    color: #016a78 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 195, 154, 0.15);
+}
+
+.product-actions button:active {
+    transform: translateY(0) scale(0.96);
+}
+
+/* --- 3. Tombol Beli pada Kartu Produk --- */
+.product-actions a {
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.product-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(2, 195, 154, 0.45) !important;
+    filter: brightness(1.05);
+}
+
+.product-actions a:hover i {
+    transform: translateX(3px);
+    transition: transform 0.2s ease;
+}
+
+.product-actions a:active {
+    transform: translateY(0) scale(0.96);
+}
+/* =========================================================
+   ULTRA-DYNAMIC & INTERACTIVE PROCESS SECTION (EMZETSTORE)
+   ========================================================= */
+
+/* Outer Layout Container */
+.about-showcase-container {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+    .about-showcase-container {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+}
+
+/* Left Section Content */
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.4rem 0.9rem;
+    background: rgba(2, 195, 154, 0.1);
+    color: #02c39a;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.about-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text, #0f172a);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.about-desc {
+    color: var(--text-muted, #64748b);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.about-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text, #0f172a);
+}
+
+.about-features i {
+    color: #02c39a;
+    margin-right: 4px;
+}
+
+/* Right Section: Workflow Container */
+.flow-card-container {
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(243, 247, 246, 0.85));
+    border: 1px solid rgba(2, 195, 154, 0.25);
+    border-radius: 20px;
+    padding: 2rem 1.25rem 1.5rem 1.25rem;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(2, 195, 154, 0.03);
+}
+
+.flow-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #02c39a;
+    letter-spacing: 1.2px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.spin-icon {
+    animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+    100% { transform: rotate(360deg); }
+}
+
+/* GARIS LASER PROGRESS UTAMA (EFEK ALIRAN NEON) */
+.flow-laser-line {
+    position: absolute;
+    top: 52%;
+    left: 8%;
+    right: 8%;
+    height: 3px;
+    background: rgba(2, 195, 154, 0.15);
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.laser-beam {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #02c39a, #00f2fe, transparent);
+    animation: laserScan 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    box-shadow: 0 0 10px #02c39a;
+}
+
+@keyframes laserScan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+}
+
+/* Workflow Grid */
+.flow-steps-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Individual Step Box */
+.flow-step-item {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 1.2rem 0.5rem 0.9rem 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Badge Angka di Pojok Kanan Atas Kartu */
+.step-badge {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: var(--text-muted, #94a3b8);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+/* Icon Container & Outer Ripple Ring */
+.step-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #02c39a, #028090);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.ripple-ring {
+    position: absolute;
+    inset: -4px;
+    border: 2px solid #02c39a;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* Typography Step */
+.step-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text, #0f172a);
+    line-height: 1.2;
+}
+
+.step-text {
+    font-size: 0.68rem;
+    color: var(--text-muted, #64748b);
+    margin: 3px 0 0 0;
+    white-space: nowrap;
+}
+
+/* Panah Penghubung Interaktif */
+.flow-arrow-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.arrow-pulse, .arrow-wave {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(2, 195, 154, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #02c39a;
+    font-size: 0.65rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* =========================================================
+   ANIMASI "ACTIVE STATE WAVE" BERANTAI (1 -> 2 -> 3)
+   ========================================================= */
+
+@keyframes activeStepWave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    30%, 60% {
+        transform: translateY(-6px) scale(1.04);
+        border-color: #02c39a;
+        box-shadow: 0 12px 25px rgba(2, 195, 154, 0.25);
+    }
+}
+
+@keyframes ripplePulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes arrowGlow {
+    0%, 100% { transform: scale(1); background: #ffffff; color: #02c39a; }
+    50% { transform: scale(1.25); background: #02c39a; color: #ffffff; box-shadow: 0 0 10px #02c39a; }
+}
+
+/* MENJALANKAN ANIMASI BERURUTAN TERUS-MENERUS (LOOPING) */
+.step-1, .flow-step-item:nth-child(1) { animation: activeStepWave 4.5s infinite ease-in-out 0s; }
+.step-1 .ripple-ring, .flow-step-item:nth-child(1) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 0s; }
+
+.step-2, .flow-step-item:nth-child(3) { animation: activeStepWave 4.5s infinite ease-in-out 1.5s; }
+.step-2 .ripple-ring, .flow-step-item:nth-child(3) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 1.5s; }
+
+.step-3, .flow-step-item:nth-child(5) { animation: activeStepWave 4.5s infinite ease-in-out 3s; }
+.step-3 .ripple-ring, .flow-step-item:nth-child(5) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 3s; }
+
+.arrow-pulse, .arrow-wave { animation: arrowGlow 2.25s infinite ease-in-out; }
+
+/* HOVER INTERAKTIF (EFEK REAKSI SAAT DITUNJUK KURSOR) */
+.flow-step-item:hover {
+    transform: translateY(-8px) scale(1.06) !important;
+    border-color: #02c39a !important;
+    box-shadow: 0 15px 30px rgba(2, 195, 154, 0.35) !important;
+    background: #ffffff !important;
+}
+
+.flow-step-item:hover .step-icon-box {
+    transform: rotate(12deg) scale(1.1);
 }
