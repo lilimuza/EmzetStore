@@ -8,6 +8,8 @@ function renderMainCategories() {
     if (!container) return;
     container.innerHTML = "";
 
+    if (typeof categoriesData === 'undefined') return;
+
     categoriesData.forEach(cat => {
         const btn = document.createElement('button');
         btn.className = `cat-chip ${cat.name === currentMainCat ? 'active' : ''}`;
@@ -65,9 +67,10 @@ function renderSubCategories(catObj) {
 
 // FILTER & RENDER PRODUK
 function filterProducts() {
+    if (typeof products === 'undefined') return;
     let result = products;
     const searchInputElem = document.getElementById('searchInput');
-    const keyword = searchInputElem ? searchInputElem.value.toLowerCase() : "";
+    const keyword = searchInputElem ? searchInputElem.value.toLowerCase().trim() : "";
 
     if (currentMainCat !== "Semua") {
         result = result.filter(p => p.category === currentMainCat);
@@ -80,9 +83,9 @@ function filterProducts() {
     if (keyword !== "") {
         result = result.filter(p => 
             p.name.toLowerCase().includes(keyword) || 
-            p.subCategory.toLowerCase().includes(keyword) ||
-            p.category.toLowerCase().includes(keyword) ||
-            p.platform.toLowerCase().includes(keyword)
+            (p.subCategory && p.subCategory.toLowerCase().includes(keyword)) ||
+            (p.category && p.category.toLowerCase().includes(keyword)) ||
+            (p.platform && p.platform.toLowerCase().includes(keyword))
         );
     }
 
@@ -96,11 +99,10 @@ function renderProducts(data) {
     container.innerHTML = '';
 
     if (data.length === 0) {
-        container.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; color: var(--text-muted);">Segera di luncurkan...</p>`;
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; color: var(--text-muted);">Produk tidak ditemukan atau segera diluncurkan...</p>`;
         return;
     }
 
-    // 1. Loop render semua produk regular dengan tombol aksi gradasi hijau-kebiruan
     data.forEach(product => {
         let shopBadgeHTML = '';
         if (product.shopBadge === "Shopee Mall") {
@@ -120,7 +122,7 @@ function renderProducts(data) {
         card.className = 'product-card';
         card.innerHTML = `
             <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="product-img-wrap" style="cursor: pointer; display: block; text-decoration: none;">
-                <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
+                <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
                 <span class="product-badge">${product.badge || 'Rekomendasi'}</span>
             </a>
             <div class="product-body">
@@ -133,19 +135,16 @@ function renderProducts(data) {
                     ${priceHTML}
                 </div>
                 
-                <!-- TOMBOL AKSI GANDA DENGAN GRADASI HIJAU-KEBIRUAN -->
-                <div class="product-actions" style="display: flex; gap: 10px; margin-top: auto; padding-top: 12px;">
-                    <!-- Tombol Detail (Modal) -->
-                    <button onclick="openModal(${product.id})" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 12px; font-size: 0.85rem; font-weight: 700; color: #028090; background: rgba(2, 195, 154, 0.1); border: 1px solid rgba(2, 195, 154, 0.4); border-radius: 12px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(2, 195, 154, 0.2)'; this.style.color='#016a78';" onmouseout="this.style.background='rgba(2, 195, 154, 0.1)'; this.style.color='#028090';">
+                <div class="product-actions" style="display: flex; gap: 8px; margin-top: auto; padding-top: 8px;">
+                    <button onclick="openModal(${product.id})" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 10px; font-size: 0.78rem; font-weight: 700; color: #028090; background: rgba(2, 195, 154, 0.1); border: 1px solid rgba(2, 195, 154, 0.4); border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
                         <i class="fas fa-eye"></i>
                         <span>Detail</span>
                     </button>
 
-                    <!-- Tombol Selengkapnya / Beli (Gradasi Penuh Hijau-Kebiruan) -->
-                    <a href="${product.link}" target="_blank" rel="noopener noreferrer" style="flex: 1.2; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; font-size: 0.85rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 12px; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 195, 154, 0.35); transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(2, 195, 154, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(2, 195, 154, 0.35)';">
+                    <a href="${product.link}" target="_blank" rel="noopener noreferrer" style="flex: 1.2; display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; font-size: 0.78rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, #02c39a, #028090); border-radius: 10px; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 195, 154, 0.35);">
                         <span>Beli</span>
-                        <div style="width: 24px; height: 24px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+                        <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-arrow-right" style="font-size: 0.65rem;"></i>
                         </div>
                     </a>
                 </div>
@@ -154,12 +153,12 @@ function renderProducts(data) {
         container.appendChild(card);
     });
 
-   // KARTU PENUTUP ULTIMATE SHOPEE
-    const shopLinkUrl = getActiveStoreLink(currentMainCat, currentSubCat);
+   // KARTU PENUTUP ULTIMATE STORE
+   const shopLinkUrl = typeof getActiveStoreLink === 'function' ? getActiveStoreLink(currentMainCat, currentSubCat) : "#";
 
-    const endCard = document.createElement('div');
-    endCard.className = 'end-store-card-pro';
-    endCard.innerHTML = `
+   const endCard = document.createElement('div');
+   endCard.className = 'end-store-card-pro';
+   endCard.innerHTML = `
         <div class="end-store-glow-bg"></div>
         <div class="end-store-content-pro">
             <div class="end-store-icon-ring">
@@ -168,7 +167,7 @@ function renderProducts(data) {
             <h3 class="end-store-title">Official Store</h3>
             <p class="end-store-desc">Temukan ribuan produk pilihan langsung di official Store-nya.</p>
             
-            <a href="${shopLinkUrl}" target="_self" class="btn-ultimate-shopee">
+            <a href="${shopLinkUrl}" target="_blank" rel="noopener noreferrer" class="btn-ultimate-shopee">
                 <span class="btn-shine-effect"></span>
                 <span class="btn-label-text">Selengkapnya</span>
                 <span class="btn-arrow-badge">
@@ -176,13 +175,14 @@ function renderProducts(data) {
                 </span>
             </a>
         </div>
-    `;
-    container.appendChild(endCard);
+   `;
+   container.appendChild(endCard);
 }
 
-// REALTIME SEARCH INPUT LISTENER
+// REALTIME SEARCH INPUT LISTENER (Dengan pelindung duplikasi)
 const searchInputElem = document.getElementById('searchInput');
-if (searchInputElem) {
+if (searchInputElem && !searchInputElem.dataset.listenerAttached) {
+    searchInputElem.dataset.listenerAttached = "true";
     searchInputElem.addEventListener('input', () => {
         filterProducts();
     });
@@ -190,23 +190,24 @@ if (searchInputElem) {
 
 // MODAL DETAIL PRODUK
 function openModal(id) {
+    if (typeof products === 'undefined') return;
     const product = products.find(p => p.id === id);
     const modal = document.getElementById('productModal');
     const body = document.getElementById('modalBody');
     if (!modal || !body || !product) return;
 
     body.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
-        <span class="product-platform"><i class="fas fa-tag"></i> ${product.platform} &bull; ${product.category} (${product.subCategory})</span>
-        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0.4rem 0;">${product.name}</h2>
+        <img src="${product.image}" alt="${product.name}" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;" onerror="this.src='https://via.placeholder.com/300?text=Gambar+Tidak+Tersedia'">
+        <span class="product-platform"><i class="fas fa-tag"></i> ${product.platform || 'Shopee'} &bull; ${product.category} (${product.subCategory})</span>
+        <h2 style="font-size: 1.15rem; font-weight: 800; margin: 0.4rem 0;">${product.name}</h2>
         <div class="price-container" style="margin-bottom:0.75rem;">
-            <span class="current-price" style="font-size:1.15rem;">${product.price}</span>
+            <span class="current-price" style="font-size:1.1rem;">${product.price}</span>
             ${product.originalPrice ? `<span class="original-price">${product.originalPrice}</span>` : ''}
         </div>
-        <p style="color:var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">${product.description || 'Silakan cek langsung detail lengkap produk ini melalui tombol di bawah.'}</p>
+        <p style="color:var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">${product.description || 'Silakan cek langsung detail lengkap produk ini melalui tombol di bawah.'}</p>
         
         <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="modal-cta-buy">
-            <span>Amankan Promo & Beli Sekarang via ${product.platform}</span> 
+            <span>Amankan Promo & Beli Sekarang via ${product.platform || 'Shopee'}</span> 
             <i class="fas fa-hand-point-right pointing-icon" style="font-size: 1.1rem;"></i>
         </a>
     `;
@@ -216,7 +217,8 @@ function openModal(id) {
 const closeModalBtn = document.querySelector('.close-modal');
 if (closeModalBtn) {
     closeModalBtn.onclick = () => {
-        document.getElementById('productModal').style.display = 'none';
+        const modal = document.getElementById('productModal');
+        if (modal) modal.style.display = 'none';
     };
 }
 
@@ -242,11 +244,7 @@ const navLinks = document.getElementById('navLinks');
 if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.onclick = (e) => {
         e.stopPropagation();
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.display = 'none';
-        } else {
-            navLinks.style.display = 'flex';
-        }
+        navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
     };
 
     navLinks.querySelectorAll('a').forEach(link => {
@@ -280,12 +278,14 @@ if (localStorage.getItem('theme') === 'light') {
     if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-// Inisialisasi awal aplikasi
-renderMainCategories();
-filterProducts();
+// Inisialisasi awal aplikasi saat DOM siap
+document.addEventListener("DOMContentLoaded", () => {
+    renderMainCategories();
+    filterProducts();
+    typeSearchPlaceholder();
+});
 
 // --- EFEK MENGETIK PADA SEARCH PLACEHOLDER ---
-const searchInput = document.getElementById('searchInput');
 const searchWords = [
     "Cari produk Shinzui...", 
     "Cari E-Book & Template...", 
@@ -298,6 +298,7 @@ let charIdx = 0;
 let isDeleting = false;
 
 function typeSearchPlaceholder() {
+    const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
     const currentWord = searchWords[wordIdx];
     
@@ -323,10 +324,6 @@ function typeSearchPlaceholder() {
     setTimeout(typeSearchPlaceholder, typeSpeed);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    typeSearchPlaceholder();
-});
-
 // --- PENGELOLAAN MUSIK LATAR (AUTO-PLAY & AUTO-STOP) ---
 const bgMusic = document.getElementById('bgMusic');
 
@@ -339,7 +336,7 @@ if (bgMusic) {
             window.removeEventListener('touchstart', startAudio);
             window.removeEventListener('scroll', startAudio);
         }).catch(err => {
-            console.log("Menunggu interaksi pertama pengguna untuk memutar musik...");
+            // Mengabaikan penolakan kebijakan pemutaran otomatis browser
         });
     };
 
