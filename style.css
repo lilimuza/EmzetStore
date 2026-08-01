@@ -1686,104 +1686,144 @@ body {
     }
 }
 /* =========================================================
-   EMZET STORE - PERFECT CENTER MOBILE ALIGNMENT
+   EMZET STORE - ULTRA-PROFESSIONAL MOBILE & INTERACTIVE UI
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* --- 1. MEMBUAT CARD UTAMA SIMETRIS KIRI & KANAN --- */
-    .hero-card,
-    .curation-card,
-    div[class*="curation"],
-    div[class*="process-card"] {
-        width: calc(100% - 2rem) !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 1.5rem 1rem !important;
-        box-sizing: border-box !important;
-        border-radius: 20px !important;
+    /* --- 1. SETTING LAYOUT DASAR & ANTI-CLIPPING --- */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* Outer Box Alur Belanja (Di dalam Card Utama) */
+    /* Container Card Utama (Rapi & Seimbang) */
+    .hero-card,
+    .curation-card,
+    div[class*="hero"],
+    div[class*="curation"],
+    div[class*="process"] {
+        width: 92% !important;
+        max-width: 92% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        /* Mencegah animasi mengambang terpotong oleh bingkai luar */
+        overflow: visible !important; 
+    }
+
+    /* --- 2. PERBAIKAN BINGKAI & KARTU ALUR BELANJA --- */
+    
+    /* Induk Bingkai Hijau Alur Belanja */
     div[class*="alur"],
     div[class*="process-box"],
     div[class*="step-wrapper"] {
         width: 100% !important;
-        margin: 1rem auto 0 auto !important;
-        padding: 1.25rem 0.5rem !important;
-        box-sizing: border-box !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important; /* Paksa konten judul alur ke tengah */
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        /* Padding atas ditambah agar animasi kartu mengambang punya ruang gerak lega */
+        padding: 1.8rem 0.5rem 1.25rem 0.5rem !important; 
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
 
-    /* Judul Alur Belanja (ALUR BELANJA AFFILIATE AMAN) */
-    div[class*="alur"] h3,
-    div[class*="alur"] h4,
-    div[class*="process"] h3,
-    div[class*="process"] h4,
-    .process-title {
-        text-align: center !important;
-        width: 100% !important;
-        margin: 0 auto 1rem auto !important;
-    }
-
-    /* --- 2. MEMBUAT KARTU 01, 02, 03 CENTER PRESISI --- */
+    /* Wrapper 3 Kartu Langkah (Pilih, Checkout, Aman) */
     .process-steps-wrapper,
     .steps-grid,
-    div[class*="steps-"] {
+    div[class*="steps"] {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center !important; /* PAKSA RATA TENGAH */
+        justify-content: center !important; /* KUNCI: Presisi di tengah layar */
         align-items: center !important;
         width: 100% !important;
         margin: 0 auto !important;
-        padding: 0.5rem 0 !important;
+        padding: 0.75rem 0 !important; /* Ruang atas-bawah tambahan */
         box-sizing: border-box !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
+        overflow: visible !important; /* Bebas dari clipping terpotong */
     }
 
-    /* Jika layar sangat kecil (di bawah 380px), tambahkan sedikit ruang scroll */
-    @media (max-width: 380px) {
-        .process-steps-wrapper,
-        .steps-grid,
-        div[class*="steps-"] {
-            justify-content: flex-start !important;
-            padding-left: 0.5rem !important;
-            padding-right: 0.5rem !important;
-        }
-    }
-
-    /* Kartu Per Langkah (01, 02, 03) */
+    /* KARTU ALUR BELANJA - TAMPILAN INTERAKTIF & MODERN */
     .step-card,
-    div[class*="step-card"] {
-        flex: 0 0 28% !important; /* Ukuran pas untuk 3 kartu sejajar di HP */
-        min-width: 85px !important;
-        scroll-snap-align: center !important;
-        padding: 0.75rem 0.25rem !important;
+    div[class*="step-card"],
+    div[class*="step-item"] {
+        flex: 1 1 0 !important;
+        max-width: 30% !important;
         margin: 0 !important;
+        padding: 0.85rem 0.3rem !important;
         text-align: center !important;
         box-sizing: border-box !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(2, 195, 154, 0.2) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 15px rgba(2, 195, 154, 0.06) !important;
+        position: relative !important;
+        z-index: 1 !important;
+        
+        /* Animasi Transisi Halus */
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                    box-shadow 0.35s ease, 
+                    border-color 0.35s ease !important;
+        will-change: transform, box-shadow;
     }
 
-    /* Panah Penyalur Antar Kartu */
+    /* EFEK INTERAKTIF: Mengambang Tanpa Terpotong Saat Disentuh / Hover */
+    .step-card:hover,
+    .step-card:active,
+    div[class*="step-card"]:hover,
+    div[class*="step-card"]:active {
+        /* Naik halus ke atas (-6px) tanpa terpotong */
+        transform: translateY(-6px) scale(1.02) !important; 
+        border-color: #02c39a !important;
+        box-shadow: 0 12px 25px rgba(2, 195, 154, 0.22) !important;
+        z-index: 5 !important;
+    }
+
+    /* Animasi Ikon Dalam Kartu Saat Disentuh */
+    .step-card:hover i,
+    .step-card:hover svg,
+    .step-card:hover div[class*="icon"],
+    div[class*="step-card"]:active i,
+    div[class*="step-card"]:active svg {
+        transform: scale(1.1) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    /* Penyesuaian Teks Dalam Kartu */
+    .step-card h4, 
+    .step-card strong,
+    div[class*="step-card"] span {
+        font-size: 0.76rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        word-break: break-word !important;
+    }
+
+    /* Panah Penyalur Antar-Kartu Modern */
     .step-arrow,
     div[class*="arrow"] {
         flex: 0 0 auto !important;
-        margin: 0 2px !important;
+        margin: 0 3px !important;
+        color: #02c39a !important;
+        opacity: 0.8 !important;
+        font-size: 0.7rem !important;
+        transition: opacity 0.3s ease !important;
     }
 
-    /* --- 3. FOOTER SUPER CLEAN & CENTER --- */
+    /* --- 3. FOOTER PRO & COPYRIGHT 1 BARIS PRESISI --- */
     footer {
         width: 100% !important;
-        margin-top: 3rem !important;
-        padding: 2.5rem 1.25rem 2.5rem !important;
-        background: #f8fafc !important;
+        margin-top: 3.5rem !important;
+        padding: 2.5rem 1rem 2rem !important;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
         border-top: 1px solid #e2e8f0 !important;
         box-sizing: border-box !important;
+        text-align: center !important;
     }
 
     .footer-content,
@@ -1792,7 +1832,7 @@ body {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        text-align: center !important;
+        justify-content: center !important;
         gap: 1.25rem !important;
         width: 100% !important;
         margin: 0 auto !important;
@@ -1807,15 +1847,20 @@ body {
         margin: 0 !important;
     }
 
+    /* Teks Copyright Terkunci 1 Baris Sejajar & Anggun */
     .footer-bottom,
-    footer p:last-child {
+    footer p:last-child,
+    footer div:last-child p {
         margin-top: 1.5rem !important;
         padding-top: 1.25rem !important;
         border-top: 1px solid #e2e8f0 !important;
-        font-size: 0.78rem !important;
-        color: #94a3b8 !important;
+        white-space: nowrap !important; /* Mencegah patah baris */
+        font-size: clamp(0.6rem, 2.6vw, 0.8rem) !important; /* Responsif presisi */
         text-align: center !important;
         width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
+        color: #94a3b8 !important;
+        letter-spacing: -0.01em !important;
     }
 }
