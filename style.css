@@ -1553,101 +1553,188 @@ body {
 }
 
 /* =========================================================
-   SOLUSI TAMPILAN MOBILE RAPI & PROFESSIONAL (EMZET STORE)
+   EMZET STORE - ULTRA PROFESSIONAL MOBILE UI & FOOTER
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* --- 1. PERBAIKAN ALUR BELANJA (BIAR CENTER & SUSUN VERTIKAL) --- */
-    
-    /* Buat pembungkus utama menjadi pas di tengah */
+    /* --- 1. HERO & PUSAT KURASI (Clean & Symmetric) --- */
     .hero-card,
     .curation-card,
-    [class*="process"],
-    [class*="step"] {
+    .process-container {
+        padding: 1.75rem 1rem !important;
+        margin-left: 0.75rem !important;
+        margin-right: 0.75rem !important;
+        border-radius: 20px !important;
         box-sizing: border-box !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
     }
 
-    /* Paksa container 3 langkah (Pilih, Checkout, Aman) untuk tumpuk ke bawah & CENTER */
-    div[class*="step"], 
-    div[class*="process"],
-    .process-steps,
-    .steps-wrapper,
-    .steps-grid {
-        display: flex !important;
-        flex-direction: column !important; /* Susun dari atas ke bawah */
-        align-items: center !important;     /* Rata tengah */
-        justify-content: center !important;
-        width: 100% !important;
-        gap: 1.2rem !important;
-        padding: 0 !important;
-    }
-
-    /* Sembunyikan panah penunjuk (>) karena posisi sudah ke bawah */
-    div[class*="step"] > span,
-    div[class*="process"] .arrow,
-    div[class*="step"] .arrow,
-    .step-arrow,
-    .process-arrow {
-        display: none !important;
-    }
-
-    /* Rapikan setiap kartu langkah (Pilih, Checkout, Aman) */
-    .step-card,
-    div[class*="step-card"],
-    div[class*="step-item"] {
-        width: 100% !important;
-        max-width: 280px !important; /* Lebar pas & rapi di tengah */
-        margin: 0 auto !important;
+    .hero-card h2,
+    .curation-card h2 {
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
         text-align: center !important;
+        letter-spacing: -0.02em !important;
+        color: #0f172a !important;
     }
 
+    .hero-card p,
+    .curation-card p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        color: #475569 !important;
+        margin-top: 0.5rem !important;
+    }
 
-    /* --- 2. PERBAIKAN FOOTER (BERNUMPUK RAPI & TIDAK OFF-SCREEN) --- */
+    /* --- 2. ALUR BELANJA DENGAN GARIS PENYALUR & ARROW --- */
+    
+    /* Container Scrollable dengan Padding Luas agar Shadow Card Tidak Terpotong */
+    .process-steps-wrapper,
+    .steps-grid,
+    div[class*="steps"] {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 0.75rem !important;
+        padding: 1rem 0.75rem !important;
+        margin-top: 0.75rem !important;
+        position: relative !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important; /* Hide Scrollbar Firefox */
+    }
 
+    .process-steps-wrapper::-webkit-scrollbar,
+    .steps-grid::-webkit-scrollbar {
+        display: none !important; /* Hide Scrollbar Chrome/Safari */
+    }
+
+    /* Step Card Berlayar Presisi */
+    .step-card,
+    div[class*="step-card"] {
+        flex: 0 0 68% !important; /* Proporsi sempurna untuk intipan kartu berikutnya */
+        scroll-snap-align: center !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(2, 195, 154, 0.25) !important;
+        border-radius: 16px !important;
+        padding: 1.25rem 0.85rem !important;
+        box-shadow: 0 4px 20px rgba(2, 195, 154, 0.08) !important;
+        text-align: center !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    /* Ikon Bulat Penyalur / Garis Panah di Luar Card */
+    .step-arrow,
+    div[class*="arrow"] {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 auto !important;
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 50% !important;
+        background: #e6f9f5 !important;
+        color: #02c39a !important;
+        font-size: 0.75rem !important;
+        z-index: 2 !important;
+    }
+
+    /* --- 3. SUPER-PROFESSIONAL ENTERPRISE FOOTER --- */
+    
     footer {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 2.5rem 1.25rem 2rem !important;
-        text-align: center !important; /* Buat isi footer center */
-        overflow: hidden !important;
+        margin-top: 3.5rem !important;
+        padding: 3rem 1.5rem 2.5rem !important;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+        border-top: 1px solid #e2e8f0 !important;
+        border-radius: 28px 28px 0 0 !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
     }
 
-    footer div,
     .footer-content,
     .footer-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        gap: 1.5rem !important;
-        width: 100% !important;
+        gap: 1.75rem !important;
+        max-width: 360px !important;
+        margin: 0 auto !important;
     }
 
-    .footer-links ul {
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
+    /* Brand Header di Footer */
+    .footer-brand {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.6rem !important;
         align-items: center !important;
     }
 
-    /* Perbaikan Khusus Teks Copyright Paling Bawah */
-    footer p,
+    .footer-brand p {
+        font-size: 0.85rem !important;
+        line-height: 1.55 !important;
+        color: #64748b !important;
+        margin-top: 0.5rem !important;
+    }
+
+    /* Navigasi Horizontal Rapi dengan Divider */
+    .footer-links ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        color: #334155 !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+    }
+
+    /* Media Sosial Icons */
+    .footer-social .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 0.85rem !important;
+    }
+
+    .footer-social a {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 50% !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    /* Copyright Bar Legah & Terstruktur (Anti-Numpuk) */
     .footer-bottom,
-    footer div:last-child {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        text-align: center !important;
-        font-size: 0.8rem !important;
+    footer > p,
+    footer div:last-child p {
+        margin-top: 2rem !important;
+        padding-top: 1.5rem !important;
+        border-top: 1px solid #e2e8f0 !important;
+        font-size: 0.78rem !important;
         line-height: 1.6 !important;
-        padding: 1rem 0.5rem 0.5rem !important;
-        margin-top: 1rem !important;
-        word-break: break-word !important; /* Mencegah teks kepotong ke samping */
+        color: #94a3b8 !important;
+        text-align: center !important;
+        word-break: keep-all !important;
+        overflow-wrap: break-word !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
