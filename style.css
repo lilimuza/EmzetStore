@@ -739,7 +739,7 @@ body {
     text-decoration: line-through;
 }
 
-/* Product Actions & Aesthetic CTA Buttons (Dioptimalkan agar tombol tidak terpotong di HP) */
+/* Product Actions & Aesthetic CTA Buttons */
 .product-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
