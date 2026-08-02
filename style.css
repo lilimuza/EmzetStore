@@ -1552,146 +1552,12 @@ body {
     transform: rotate(12deg) scale(1.1);
 }
 /* =========================================================
-   EMZET STORE - PERFECT CENTER MOBILE ALIGNMENT
+   EMZET STORE - PERFECT MOBILE & INTERACTIVE UI (FIXED)
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* --- 1. MEMBUAT CARD UTAMA SIMETRIS KIRI & KANAN --- */
-    .hero-card,
-    .curation-card,
-    div[class*="curation"],
-    div[class*="process-card"] {
-        width: calc(100% - 2rem) !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 1.5rem 1rem !important;
-        box-sizing: border-box !important;
-        border-radius: 20px !important;
-    }
-
-    /* Outer Box Alur Belanja (Di dalam Card Utama) */
-    div[class*="alur"],
-    div[class*="process-box"],
-    div[class*="step-wrapper"] {
-        width: 100% !important;
-        margin: 1rem auto 0 auto !important;
-        padding: 1.25rem 0.5rem !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important; /* Paksa konten judul alur ke tengah */
-    }
-
-    /* Judul Alur Belanja (ALUR BELANJA AFFILIATE AMAN) */
-    div[class*="alur"] h3,
-    div[class*="alur"] h4,
-    div[class*="process"] h3,
-    div[class*="process"] h4,
-    .process-title {
-        text-align: center !important;
-        width: 100% !important;
-        margin: 0 auto 1rem auto !important;
-    }
-
-    /* --- 2. MEMBUAT KARTU 01, 02, 03 CENTER PRESISI --- */
-    .process-steps-wrapper,
-    .steps-grid,
-    div[class*="steps-"] {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important; /* PAKSA RATA TENGAH */
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0.5rem 0 !important;
-        box-sizing: border-box !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
-    /* Jika layar sangat kecil (di bawah 380px), tambahkan sedikit ruang scroll */
-    @media (max-width: 380px) {
-        .process-steps-wrapper,
-        .steps-grid,
-        div[class*="steps-"] {
-            justify-content: flex-start !important;
-            padding-left: 0.5rem !important;
-            padding-right: 0.5rem !important;
-        }
-    }
-
-    /* Kartu Per Langkah (01, 02, 03) */
-    .step-card,
-    div[class*="step-card"] {
-        flex: 0 0 28% !important; /* Ukuran pas untuk 3 kartu sejajar di HP */
-        min-width: 85px !important;
-        scroll-snap-align: center !important;
-        padding: 0.75rem 0.25rem !important;
-        margin: 0 !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Panah Penyalur Antar Kartu */
-    .step-arrow,
-    div[class*="arrow"] {
-        flex: 0 0 auto !important;
-        margin: 0 2px !important;
-    }
-
-    /* --- 3. FOOTER SUPER CLEAN & CENTER --- */
-    footer {
-        width: 100% !important;
-        margin-top: 3rem !important;
-        padding: 2.5rem 1.25rem 2.5rem !important;
-        background: #f8fafc !important;
-        border-top: 1px solid #e2e8f0 !important;
-        box-sizing: border-box !important;
-    }
-
-    .footer-content,
-    .footer-grid,
-    footer > div {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 1.25rem !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-    }
-
-    .footer-links ul {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 1.25rem !important;
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .footer-bottom,
-    footer p:last-child {
-        margin-top: 1.5rem !important;
-        padding-top: 1.25rem !important;
-        border-top: 1px solid #e2e8f0 !important;
-        font-size: 0.78rem !important;
-        color: #94a3b8 !important;
-        text-align: center !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-}
-/* =========================================================
-   EMZET STORE - ULTRA-PROFESSIONAL MOBILE & INTERACTIVE UI
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* --- 1. SETTING LAYOUT DASAR & ANTI-CLIPPING --- */
+    /* --- 1. LAYOUT DASAR & ANTI-CLIPPING --- */
     html, body {
         overflow-x: hidden !important;
         width: 100% !important;
@@ -1699,59 +1565,66 @@ body {
         padding: 0 !important;
     }
 
-    /* Container Card Utama (Rapi & Seimbang) */
-    .hero-card,
-    .curation-card,
-    div[class*="hero"],
-    div[class*="curation"],
-    div[class*="process"] {
+    /* Container Utama Section About */
+    .about-section {
         width: 92% !important;
         max-width: 92% !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        box-sizing: border-box !important;
-        /* Mencegah animasi mengambang terpotong oleh bingkai luar */
-        overflow: visible !important; 
+        padding: 0 !important;
     }
 
-    /* --- 2. PERBAIKAN BINGKAI & KARTU ALUR BELANJA --- */
-    
-    /* Induk Bingkai Hijau Alur Belanja */
-    div[class*="alur"],
-    div[class*="process-box"],
-    div[class*="step-wrapper"] {
-        width: 100% !important;
+    .about-showcase-container {
+        padding: 1.25rem !important;
+        overflow: visible !important; /* Agar efek hover/lift tidak terpotong */
+        border-radius: 20px !important;
+    }
+
+    .about-grid {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        /* Padding atas ditambah agar animasi kartu mengambang punya ruang gerak lega */
-        padding: 1.8rem 0.5rem 1.25rem 0.5rem !important; 
-        box-sizing: border-box !important;
-        overflow: visible !important;
+        gap: 1.5rem !important;
     }
 
-    /* Wrapper 3 Kartu Langkah (Pilih, Checkout, Aman) */
-    .process-steps-wrapper,
-    .steps-grid,
-    div[class*="steps"] {
+    .about-info {
+        text-align: center !important;
+    }
+
+    .about-tags {
+        justify-content: center !important;
+    }
+
+    /* --- 2. PERBAIKAN BINGKAI & ALUR BELANJA --- */
+    .flow-card-box {
+        width: 100% !important;
+        padding: 1.5rem 0.5rem 1.25rem 0.5rem !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        border-radius: 16px !important;
+    }
+
+    .flow-header {
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+        font-size: 0.78rem !important;
+    }
+
+    /* Wrapper 3 Kartu Langkah (01, 02, 03) - Rata Tengah Presisi */
+    .affiliate-steps-wrapper {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important; /* KUNCI: Presisi di tengah layar */
         align-items: center !important;
         width: 100% !important;
         margin: 0 auto !important;
-        padding: 0.75rem 0 !important; /* Ruang atas-bawah tambahan */
+        padding: 0.5rem 0 !important;
         box-sizing: border-box !important;
-        overflow: visible !important; /* Bebas dari clipping terpotong */
+        overflow: visible !important;
     }
 
-    /* KARTU ALUR BELANJA - TAMPILAN INTERAKTIF & MODERN */
-    .step-card,
-    div[class*="step-card"],
-    div[class*="step-item"] {
+    /* KARTU ALUR BELANJA - INTERAKTIF & RESPONSIP */
+    .affiliate-step-card {
         flex: 1 1 0 !important;
         max-width: 30% !important;
         margin: 0 !important;
@@ -1759,9 +1632,9 @@ body {
         text-align: center !important;
         box-sizing: border-box !important;
         background: #ffffff !important;
-        border: 1px solid rgba(2, 195, 154, 0.2) !important;
-        border-radius: 16px !important;
-        box-shadow: 0 4px 15px rgba(2, 195, 154, 0.06) !important;
+        border: 1px solid rgba(2, 195, 154, 0.25) !important;
+        border-radius: 14px !important;
+        box-shadow: 0 4px 12px rgba(2, 195, 154, 0.06) !important;
         position: relative !important;
         z-index: 1 !important;
         
@@ -1773,94 +1646,306 @@ body {
     }
 
     /* EFEK INTERAKTIF: Mengambang Tanpa Terpotong Saat Disentuh / Hover */
-    .step-card:hover,
-    .step-card:active,
-    div[class*="step-card"]:hover,
-    div[class*="step-card"]:active {
-        /* Naik halus ke atas (-6px) tanpa terpotong */
-        transform: translateY(-6px) scale(1.02) !important; 
+    .affiliate-step-card:hover,
+    .affiliate-step-card:active {
+        transform: translateY(-5px) scale(1.02) !important; 
         border-color: #02c39a !important;
-        box-shadow: 0 12px 25px rgba(2, 195, 154, 0.22) !important;
+        box-shadow: 0 10px 20px rgba(2, 195, 154, 0.2) !important;
         z-index: 5 !important;
     }
 
-    /* Animasi Ikon Dalam Kartu Saat Disentuh */
-    .step-card:hover i,
-    .step-card:hover svg,
-    .step-card:hover div[class*="icon"],
-    div[class*="step-card"]:active i,
-    div[class*="step-card"]:active svg {
+    /* Animasi Ikon Saat Disentuh */
+    .affiliate-step-card:hover .step-icon,
+    .affiliate-step-card:active .step-icon {
         transform: scale(1.1) !important;
         transition: transform 0.3s ease !important;
     }
 
-    /* Penyesuaian Teks Dalam Kartu */
-    .step-card h4, 
-    .step-card strong,
-    div[class*="step-card"] span {
-        font-size: 0.76rem !important;
-        font-weight: 700 !important;
-        color: #0f172a !important;
-        word-break: break-word !important;
+    .step-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 6px !important;
     }
 
-    /* Panah Penyalur Antar-Kartu Modern */
-    .step-arrow,
-    div[class*="arrow"] {
+    .step-title {
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+    }
+
+    .step-desc {
+        font-size: 0.58rem !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Panah Penyalur Antar-Kartu */
+    .flow-arrow {
         flex: 0 0 auto !important;
         margin: 0 3px !important;
         color: #02c39a !important;
         opacity: 0.8 !important;
-        font-size: 0.7rem !important;
-        transition: opacity 0.3s ease !important;
+        font-size: 0.65rem !important;
     }
 
-    /* --- 3. FOOTER PRO & COPYRIGHT 1 BARIS PRESISI --- */
-    footer {
+    .desktop-arrow { display: inline-block !important; }
+    .mobile-arrow { display: none !important; } /* Tetap horizontal di HP agar kompak */
+
+    /* --- 3. FOOTER PRO & COPYRIGHT PRESISI 1 BARIS --- */
+    .footer {
         width: 100% !important;
         margin-top: 3.5rem !important;
-        padding: 2.5rem 1rem 2rem !important;
+        padding: 2.5rem 1rem 1.5rem 1rem !important;
         background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
         border-top: 1px solid #e2e8f0 !important;
         box-sizing: border-box !important;
         text-align: center !important;
     }
 
-    .footer-content,
-    .footer-grid,
-    footer > div {
+    .footer-content {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 1.25rem !important;
+        gap: 1.5rem !important;
         width: 100% !important;
         margin: 0 auto !important;
+        padding-bottom: 1.5rem !important;
     }
 
-    .footer-links ul {
+    .footer-brand {
         display: flex !important;
-        justify-content: center !important;
-        gap: 1.25rem !important;
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
-    /* Teks Copyright Terkunci 1 Baris Sejajar & Anggun */
-    .footer-bottom,
-    footer p:last-child,
-    footer div:last-child p {
-        margin-top: 1.5rem !important;
+    .brand-desc {
+        max-width: 100% !important;
+        font-size: 0.8rem !important;
+    }
+
+    .footer-group {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        width: 100% !important;
+        gap: 1rem !important;
+    }
+
+    .footer-col {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .footer-links-list {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+    }
+
+    .social-icons {
+        justify-content: center !important;
+    }
+
+    /* Copyright 1 Baris Sejajar & Anggun */
+    .footer-bottom {
+        margin-top: 1rem !important;
         padding-top: 1.25rem !important;
         border-top: 1px solid #e2e8f0 !important;
-        white-space: nowrap !important; /* Mencegah patah baris */
-        font-size: clamp(0.6rem, 2.6vw, 0.8rem) !important; /* Responsif presisi */
-        text-align: center !important;
         width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        background: transparent !important;
+    }
+
+    .footer-bottom p {
+        white-space: nowrap !important;
+        font-size: clamp(0.6rem, 2.5vw, 0.78rem) !important;
+        text-align: center !important;
         color: #94a3b8 !important;
+        margin: 0 !important;
         letter-spacing: -0.01em !important;
     }
+}
+/* =========================================================
+   PERBAIKAN FOOTER TOTAL (MENIMPA GAYA DEFAULT BROWSER)
+   ========================================================= */
+
+/* 1. Hilangkan Titik Bullet & Reset Padding List */
+ul.footer-links-list,
+.footer-links-list {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+}
+
+.footer-links-list li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Bersihkan Tampilan Link (Garis Bawah & Warna Ungu/Biru Hilang) */
+.footer-links-list a {
+    color: var(--text-muted, #64748b) !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.footer-links-list a:hover {
+    color: #02c39a !important;
+}
+
+/* 3. Rapikan Alignment Layout Footer */
+.footer {
+    background: #ffffff !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 2.5rem 1rem 0 1rem !important;
+    margin-top: 3rem !important;
+}
+
+.footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.8rem !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+.footer-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.brand-desc {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    max-width: 420px !important;
+    margin-top: 0.5rem !important;
+    line-height: 1.5 !important;
+}
+
+.footer-group {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 3rem !important;
+    width: 100% !important;
+}
+
+.footer-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.footer-heading {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 0.8rem !important;
+}
+
+/* 4. Social Icons */
+.social-icons {
+    display: flex !important;
+    gap: 12px !important;
+    justify-content: center !important;
+}
+
+.social-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03) !important;
+    transition: all 0.2s ease !important;
+}
+
+.social-icon:hover {
+    background: #02c39a !important;
+    color: #ffffff !important;
+    border-color: #02c39a !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 5. Copyright Baris Bawah */
+.footer-bottom {
+    margin-top: 2rem !important;
+    padding: 1.2rem 1rem !important;
+    border-top: 1px solid #f1f5f9 !important;
+    text-align: center !important;
+}
+
+.footer-bottom p {
+    font-size: 0.78rem !important;
+    color: #94a3b8 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+}
+
+@media (max-width: 480px) {
+    .footer-group {
+        gap: 1.5rem !important;
+    }
+    .footer-bottom p {
+        font-size: 0.7rem !important;
+        white-space: normal !important; /* Agar teks copyright terurai rapi jika di HP layar sangat sempit */
+    }
+}
+/* =========================================================
+   ANIMASI PANAH PENYALUR ALUR BELANJA (FLOW ARROW ANIMATION)
+   ========================================================= */
+
+/* 1. Efek Bergerak Menyamping (Push/Slide) & Berkedip */
+@keyframes flowArrowPulse {
+    0% {
+        opacity: 0.3;
+        transform: translateX(-4px) scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(3px) scale(1.15);
+        color: #02c39a; /* Warna hijau menyala saat bergerak */
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateX(-4px) scale(0.9);
+    }
+}
+
+/* 2. Pasang Animasi ke Elemen Panah */
+.flow-arrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 4px !important;
+    color: #02c39a !important;
+    font-size: 0.85rem !important;
+    
+    /* Mengaktifkan animasi secara terus-menerus */
+    animation: flowArrowPulse 1.5s infinite ease-in-out !important;
+    will-change: transform, opacity;
+}
+
+/* Opsional: Berikan jeda sedikit pada panah kedua agar efek penyalurannya beruntun */
+.flow-arrow:nth-of-type(2) {
+    animation-delay: 0.3s !important;
 }
