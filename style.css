@@ -1555,7 +1555,7 @@ button {
 }
 
 /* ==========================================================================
-   8. ABOUT SECTION & FLOW CARDS (ULTRA-MODERN GLASS EDITION)
+   8. ABOUT SECTION & FLOW CARDS (ULTRA-MODERN & FULLY RESPONSIVE)
    ========================================================================== */
 .about-section {
     padding: 70px 0 100px 0;
@@ -1579,7 +1579,7 @@ button {
     -webkit-backdrop-filter: blur(16px);
 }
 
-/* Ambient Ambient Glow Efek Latar */
+/* Ambient Glow Efek Latar */
 .showcase-glow-anim {
     position: absolute;
     top: -40%;
@@ -1776,7 +1776,7 @@ button {
     line-height: 1.35;
 }
 
-/* Connecting Flow Line */
+/* Connecting Flow Line Desktop (Horizontal) */
 .flow-line {
     height: 2px;
     flex: 0.6;
@@ -1787,6 +1787,9 @@ button {
 }
 
 .line-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 70%;
     height: 100%;
     background: linear-gradient(90deg, transparent, #02c39a, #00f2fe, transparent);
@@ -1800,7 +1803,7 @@ button {
 }
 
 /* ==========================================================================
-   RESPONSIVE ADAPTATION (MOBILE & TABLET FIX)
+   RESPONSIVE ADAPTATION (MOBILE & TABLET OPTIMIZATION)
    ========================================================================== */
 @media (max-width: 992px) {
     .about-showcase-container {
@@ -1816,35 +1819,73 @@ button {
 
 @media (max-width: 576px) {
     .about-section {
-        padding: 40px 0 60px 0;
+        padding: 35px 0 50px 0;
     }
 
     .about-showcase-container {
-        padding: 1.75rem 1.25rem;
+        padding: 1.5rem 1.15rem;
         border-radius: 20px;
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-desc {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-features {
+        justify-content: center;
+    }
+
+    .about-features span {
+        padding: 7px 12px;
+        font-size: 0.78rem;
     }
 
     .flow-card-box {
         padding: 1.25rem 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .flow-card-header {
+        justify-content: center;
+        font-size: 0.8rem;
+        margin-bottom: 1.25rem;
     }
 
     .affiliate-steps-wrapper {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
     }
 
+    .affiliate-step-card {
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    /* Perbaikan Garis Alur Vertikal di HP */
     .flow-line {
-        width: 2px;
-        height: 24px;
-        flex: auto;
-        margin: 0 auto;
+        width: 2px !important;
+        height: 30px !important;
+        min-height: 30px;
+        flex: none !important;
+        margin: 4px auto;
+        display: block;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .line-pulse {
-        width: 100%;
-        height: 70%;
+        width: 100% !important;
+        height: 70% !important;
         background: linear-gradient(180deg, transparent, #02c39a, #00f2fe, transparent);
-        animation: pulseLineVertical 1.8s infinite linear;
+        box-shadow: 0 0 8px #02c39a;
+        animation: pulseLineVertical 1.6s infinite linear !important;
     }
 
     @keyframes pulseLineVertical {
@@ -2043,7 +2084,7 @@ button {
 }
 
 /* ==========================================================================
-   10. FOOTER (MODERN GLASS EDITION)
+   10. FOOTER (MODERN GLASS EDITION - FULLY RESPONSIVE)
    ========================================================================== */
 .footer {
     background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(8, 11, 19, 0.95) 100%);
@@ -2070,7 +2111,7 @@ button {
     display: flex;
     justify-content: space-between;
     gap: 3rem;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
 }
 
@@ -2157,14 +2198,18 @@ button {
     transform: scale(0.95);
 }
 
-/* FOOTER BOTTOM / COPYRIGHT */
+/* FOOTER BOTTOM / COPYRIGHT (OPTIMIZED 1 BARIS PRESISI) */
 .footer-bottom {
     text-align: center;
-    padding-top: 25px;
+    padding-top: 22px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 0.8rem;
+    font-size: clamp(0.68rem, 2.5vw, 0.8rem); /* Otomatis mengecil di HP agar muat 1 baris */
     color: var(--text-muted, rgba(255, 255, 255, 0.5));
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
+    white-space: nowrap; /* Memaksa kalimat tidak terputus */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Menjaga batas jika screen sangat ekstrem */
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -2255,15 +2300,15 @@ button {
         gap: 0.85rem;
     }
 
-    /* Peningkatan Tampilan Footer di Tablet/HP */
+    /* Peningkatan Tampilan Footer di Tablet */
     .footer {
-        padding: 50px 0 25px 0;
+        padding: 45px 0 20px 0;
     }
 
     .footer-content {
         flex-direction: column;
         gap: 2rem;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
     }
 
     .footer-brand {
@@ -2301,33 +2346,74 @@ button {
     }
 
     .affiliate-steps-wrapper {
-        gap: 2px;
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .step-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
-        border-radius: 10px;
-        margin-bottom: 6px;
+    .affiliate-step-card {
+        width: 100%;
+        padding: 4px 0;
     }
 
-    .step-title {
-        font-size: 0.72rem;
-    }
-
-    .step-desc {
-        font-size: 0.62rem;
-    }
-
+    /* Perbaikan Garis Flow Vertikal HP */
     .flow-line {
-        height: 2px;
-        flex: 0.4;
+        width: 2px !important;
+        height: 30px !important;
+        min-height: 30px;
+        flex: none !important;
+        margin: 4px auto;
+        display: block;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .line-pulse {
+        width: 100% !important;
+        height: 70% !important;
+        background: linear-gradient(180deg, transparent, #02c39a, #00f2fe, transparent);
+        box-shadow: 0 0 8px #02c39a;
+        animation: pulseLineVertical 1.6s infinite linear !important;
+    }
+
+    @keyframes pulseLineVertical {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+    }
+
+    /* Optimasi Brand & Social Icons di HP */
+    .footer-brand {
+        text-align: center;
+    }
+
+    .brand-desc {
+        margin: 10px auto 0 auto;
+        max-width: 320px;
+        font-size: 0.82rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 12px;
     }
 
     .footer-group {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-heading {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .footer-links-list a {
+        font-size: 0.82rem;
+    }
+
+    /* Penyesuaian Khusus Copyright HP */
+    .footer-bottom {
+        padding-top: 18px;
+        letter-spacing: 0px;
     }
 }
 
@@ -2345,5 +2431,15 @@ button {
         padding: 9px 18px;
         font-size: 0.85rem;
         border-radius: 12px;
+    }
+
+    /* Untuk HP Layar Sangat Kecil (<480px) */
+    .footer-group {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .footer-bottom {
+        font-size: clamp(0.65rem, 3.2vw, 0.75rem);
     }
 }
