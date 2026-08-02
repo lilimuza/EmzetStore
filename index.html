@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EmzetStore | By Aliemzet</title>
-    <!-- Cache busting diperbarui agar memaksa browser memuat ulang CSS terbaru -->
+    
+    <!-- Cache busting CSS -->
     <link rel="stylesheet" href="style.css?v=2026.08.02-pro">
+    
+    <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,21 +26,20 @@
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon animate-spin-slow"><i class="fas fa-bolt"></i></span>
-                Emzet<span class="logo-highlight">Store</span>
+            <a href="#hero" class="logo">
+                <div class="logo-icon-wrapper">
+                    <i class="fas fa-bolt logo-icon"></i>
+                </div>
+                <span>Emzet<span class="logo-highlight">Store</span></span>
             </a>
             
             <nav class="nav-links" id="navLinks">
-                <a href="#home" class="nav-link active">Home</a>
+                <a href="#hero" class="nav-link active">Home</a>
                 <a href="#products" class="nav-link">Katalog</a>
                 <a href="#about" class="nav-link">Tentang</a>
             </nav>
 
             <div class="nav-actions">
-                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
                 <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -46,57 +48,119 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-floating-container">
-            <span class="floating-item">👜</span>
-            <span class="floating-item text-badge">🔥 Buruan Beli Sekarang!</span>
-            <span class="floating-item">👔</span>
-            <span class="floating-item text-badge">⚡ Checkout Tanpa Ragu</span>
-            <span class="floating-item">☕</span>
-            <span class="floating-item text-badge">✨ Spesial Diskon Hari Ini</span>
-            <span class="floating-item">🧴</span>
-            <span class="floating-item text-badge">💎 Terlaris & Paling Dicari</span>
-            <span class="floating-item">📚</span>
-            <span class="floating-item text-badge">🚀 Amankan Promonya</span>
-            <span class="floating-item">⭐</span>
-            <span class="floating-item text-badge">⭐ Produk Pilihan Terbaik</span>
-        </div>
+    <section id="hero" class="hero-section">
+        <!-- Ambient Background Glow -->
+        <div class="glow-orb glow-1"></div>
+        <div class="glow-orb glow-2"></div>
 
-        <div class="container hero-content">
-            <div class="hero-badge animate-bounce-slow">
-                <i class="fas fa-fire flame-icon"></i> Shopee & Lynk.id Curated Showcase
-            </div>
-            <h1 class="hero-title">Pusat Belanja Pilihan Terbaik di <span>EmzetStore</span></h1>
-            <p class="hero-desc">Temukan produk fisik & digital impianmu dari Shopee serta Lynk.id dengan navigasi mudah dan penawaran terbaik khusus untukmu.</p>
+        <div class="hero-container">
             
-            <div class="search-box animate-pulse-border">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Cari produk impianmu...">
-                <button class="search-btn">Cari</button>
+            <!-- SIDE KIRI: Headline & Compact Search -->
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span> Official Showcase
+                </div>
+                
+                <h1 class="hero-title">
+                    Pusat Belanja Pilihan Terbaik di <span>EmzetStore</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Temukan koleksi produk fisik & digital terkurasi khusus untukmu dengan akses cepat dan aman.
+                </p>
+
+                <!-- SEARCH BAR SUPER RAMPING & ELEGANT -->
+                <div class="compact-search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Cari sesuatu...">
+                    <button class="compact-search-btn" aria-label="Cari Produk">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
+
+            <!-- SIDE KANAN: Floating Dynamic Promo Cards (Continuous Loop) -->
+            <div class="hero-right">
+                <div class="promo-ticker-vertical">
+                    <div class="ticker-track">
+                        <!-- Set 1 -->
+                        <div class="promo-card">
+                            <span class="card-icon"><i class="fa-solid fa-fire"></i></span>
+                            <div class="card-text">
+                                <strong>Promo Spesial</strong>
+                                <small>Diskon khusus eksklusif hari ini</small>
+                            </div>
+                        </div>
+                        
+                        <div class="promo-card highlight">
+                            <span class="card-icon"><i class="fa-solid fa-bolt"></i></span>
+                            <div class="card-text">
+                                <strong>Akses Otomatis</strong>
+                                <small>Checkout instan via Shopee & Lynk.id</small>
+                            </div>
+                        </div>
+
+                        <div class="promo-card">
+                            <span class="card-icon"><i class="fa-solid fa-gem"></i></span>
+                            <div class="card-text">
+                                <strong>Produk Terpilih</strong>
+                                <small>100% Kualitas Terjamin</small>
+                            </div>
+                        </div>
+
+                        <!-- Duplikasi untuk Infinite Seamless Loop -->
+                        <div class="promo-card">
+                            <span class="card-icon"><i class="fa-solid fa-fire"></i></span>
+                            <div class="card-text">
+                                <strong>Promo Spesial</strong>
+                                <small>Diskon khusus eksklusif hari ini</small>
+                            </div>
+                        </div>
+                        
+                        <div class="promo-card highlight">
+                            <span class="card-icon"><i class="fa-solid fa-bolt"></i></span>
+                            <div class="card-text">
+                                <strong>Akses Otomatis</strong>
+                                <small>Checkout instan via Shopee & Lynk.id</small>
+                            </div>
+                        </div>
+
+                        <div class="promo-card">
+                            <span class="card-icon"><i class="fa-solid fa-gem"></i></span>
+                            <div class="card-text">
+                                <strong>Produk Terpilih</strong>
+                                <small>100% Kualitas Terjamin</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- MAIN PRODUCT SECTION -->
     <section id="products" class="container section">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem auto; padding: 0 1rem;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 0.35rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; box-shadow: var(--shadow-glow);">
+        
+        <!-- Header Katalog -->
+        <div class="section-header">
+            <div class="section-tag">
                 <i class="fas fa-crown"></i> Curated Collections
             </div>
-            <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem; color: var(--text);">
-                Katalog Pilihan <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Eksklusif</span>
+            <h2 class="section-title">
+                Katalog Pilihan <span class="text-gradient">Eksklusif</span>
             </h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+            <p class="section-desc">
                 Jelajahi lini produk fisik dan digital pilihan terbaik yang dikurasi khusus untuk memberikan kualitas dan nilai tertinggi bagi Anda.
             </p>
         </div>
 
         <!-- MAIN CATEGORIES BAR -->
-        <div class="main-categories-wrapper" style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; padding: 0 0.2rem;">
-                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Pilih Kategori</span>
+        <div class="main-categories-wrapper">
+            <div class="categories-header-bar">
+                <span class="category-label">Pilih Kategori</span>
                 
-                <!-- INDIKATOR GESER BARU (FLOATING GLASS BADGE) -->
+                <!-- INDIKATOR GESER -->
                 <div class="scroll-hint-badge">
                     <i class="fas fa-hand-pointer swipe-icon"></i>
                     <span>Geser kategori</span>
@@ -107,102 +171,100 @@
         </div>
 
         <!-- SUB-CATEGORIES BAR -->
-        <div class="sub-categories-container" id="subCategoriesContainer" style="display: none; max-width: 900px; margin: 0 auto; padding: 0 1rem;">
+        <div class="sub-categories-container" id="subCategoriesContainer">
             <div class="sub-categories-scroll" id="subCategories"></div>
         </div>
 
         <!-- PRODUK GRID -->
-        <div style="max-width: 1200px; margin: 2rem auto 0 auto; padding: 0 1rem;">
+        <div class="product-grid-wrapper">
             <div id="product-container" class="product-grid"></div>
         </div>
     </section>
 
-   <!-- ABOUT & SHOWCASE ANIMATION SECTION -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="about-section container">
         <div class="about-showcase-container animate-pulse-border">
             <div class="showcase-glow-anim"></div>
 
-            <div class="about-grid">
-                <!-- Info Kiri -->
-                <div class="about-info">
-                    <span class="badge-live">
-                        <i class="fas fa-satellite-dish"></i> LIVE CURATED SHOWCASE
-                    </span>
-                    <h3 class="about-title">Pusat Kurasi Pintar & Terpercaya</h3>
-                    <p class="about-desc">
-                        <strong>EmzetStore</strong> adalah etalase digital mandiri. Ketika Anda mengeklik tombol <strong>Beli</strong>, sistem cerdas kami langsung mengarahkan Anda dengan aman ke platform resmi pemilik produk.
-                    </p>
-                    <div class="about-tags">
-                        <span><i class="fas fa-check-circle icon-shopee"></i> Official Shopee Link</span>
-                        <span><i class="fas fa-check-circle icon-lynk"></i> Instant Digital Lynk.id</span>
-                    </div>
-                </div>
-
-                <!-- Box Alur Kanan -->
-                <div class="flow-card-box">
-                    <div class="flow-header">
-                        <i class="fas fa-sync-alt fa-spin icon-spin"></i> Alur Belanja Affiliate Aman
-                    </div>
-
-                    <!-- CONTAINER ALUR RESPONSIF -->
-<div class="affiliate-steps-wrapper">
-    <!-- Step 1 -->
-    <div class="affiliate-step-card">
-        <div class="step-icon"><i class="fas fa-hand-pointer"></i></div>
-        <div class="step-title">1. Pilih</div>
-        <div class="step-desc">Klik item favorit</div>
-    </div>
-
-    <!-- Garis Animasi 1 -->
-    <div class="flow-line">
-        <div class="line-pulse"></div>
-    </div>
-
-    <!-- Step 2 -->
-    <div class="affiliate-step-card">
-        <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
-        <div class="step-title">2. Checkout</div>
-        <div class="step-desc">Beli via Resmi</div>
-    </div>
-
-    <!-- Garis Animasi 2 -->
-    <div class="flow-line">
-        <div class="line-pulse"></div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="affiliate-step-card">
-        <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="step-title">3. Aman</div>
-        <div class="step-desc">Garansi Toko</div>
-    </div>
-</div>
+            <!-- INFO TEKS -->
+            <div class="about-info">
+                <span class="live-badge">
+                    <i class="fas fa-satellite-dish"></i> LIVE CURATED SHOWCASE
+                </span>
+                <h3 class="about-title">Pusat Kurasi Pintar & Terpercaya</h3>
+                <p class="about-desc">
+                    <strong>EmzetStore</strong> adalah etalase digital mandiri. Ketika Anda mengeklik tombol <strong>Beli</strong>, sistem cerdas kami langsung mengarahkan Anda dengan aman ke platform resmi pemilik produk.
+                </p>
+                <div class="about-features">
+                    <span><i class="fas fa-check-circle icon-shopee"></i> Official Shopee Link</span>
+                    <span><i class="fas fa-check-circle icon-lynk"></i> Instant Digital Lynk.id</span>
                 </div>
             </div>
+
+            <!-- BOX ALUR BELANJA -->
+            <div class="flow-card-box">
+                <div class="flow-card-header">
+                    <i class="fas fa-sync-alt spin-icon"></i> Alur Belanja Affiliate Aman
+                </div>
+
+                <div class="affiliate-steps-wrapper">
+                    <div class="affiliate-step-card">
+                        <div class="step-icon"><i class="fas fa-hand-pointer"></i></div>
+                        <div class="step-title">1. Pilih</div>
+                        <div class="step-desc">Klik item favorit</div>
+                    </div>
+
+                    <div class="flow-line">
+                        <div class="line-pulse"></div>
+                    </div>
+
+                    <div class="affiliate-step-card">
+                        <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="step-title">2. Checkout</div>
+                        <div class="step-desc">Beli via Resmi</div>
+                    </div>
+
+                    <div class="flow-line">
+                        <div class="line-pulse"></div>
+                    </div>
+
+                    <div class="affiliate-step-card">
+                        <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="step-title">3. Aman</div>
+                        <div class="step-desc">Garansi Toko</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- FOOTER SUPER PROFESIONAL -->
+    <!-- MODAL DETAIL PRODUK -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content animate-pop">
+            <button class="close-modal">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-content">
-            <!-- Brand Info -->
             <div class="footer-brand">
-                <a href="#" class="logo">Emzet<span class="logo-highlight">Store</span></a>
+                <a href="#hero" class="logo">Emzet<span class="logo-highlight">Store</span></a>
                 <p class="brand-desc">Destinasi kurasi produk affiliate dari Shopee dan Lynk.id dengan pengalaman selancar mobile yang mulus.</p>
             </div>
 
-            <!-- Links -->
             <div class="footer-group">
                 <div class="footer-col">
                     <h4 class="footer-heading">Navigasi</h4>
                     <ul class="footer-links-list">
-                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#hero">Beranda</a></li>
                         <li><a href="#products">Katalog</a></li>
                         <li><a href="#about">Tentang Kami</a></li>
                     </ul>
                 </div>
 
-                <!-- Social -->
                 <div class="footer-col">
                     <h4 class="footer-heading">Ikuti Kami</h4>
                     <div class="social-icons">
@@ -217,11 +279,8 @@
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="footer-bottom">
-            <div class="container footer-bottom-flex">
-                <p>&copy; 2026 EmzetStore. Seluruh tautan produk merupakan link afiliasi.</p>
-            </div>
+            <p>&copy; 2026 EmzetStore. Seluruh tautan produk merupakan link afiliasi.</p>
         </div>
     </footer>
 
