@@ -936,220 +936,455 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* =========================================================
+   EMZET STORE - ENTERPRISE INDUSTRIAL CSS SYSTEM (V2.1)
+   ULTRA-RESPONSIVE & SINGLE-LINE FOOTER PROTECTED
+   ========================================================= */
 
 /* ---------------------------------------------------------
-   2. ABOUT SECTION & ULTRA-DYNAMIC WORKFLOW (ALUR BELANJA)
+   1. KEYFRAMES & ADVANCED ANIMATION SYSTEM
    --------------------------------------------------------- */
-.about-section { 
-    padding: 3rem 0 5rem; 
+
+/* Continuous Laser Beam Flow */
+@keyframes continuousLaserFlow {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(280%);
+        opacity: 0;
+    }
+}
+
+/* Subtle Card Wave Elevation */
+@keyframes stepCardPulse {
+    0%, 100% {
+        transform: translateY(0);
+        border-color: rgba(2, 195, 154, 0.2);
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    50% {
+        transform: translateY(-5px);
+        border-color: rgba(2, 195, 154, 0.6);
+        box-shadow: 0 12px 30px rgba(2, 195, 154, 0.18);
+    }
+}
+
+/* Floating Icon Pulse Effect */
+@keyframes iconGlowPulse {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 0 0 0 rgba(2, 195, 154, 0.4);
+    }
+    50% {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 0 0 10px rgba(2, 195, 154, 0);
+    }
+}
+
+/* Button CTA Heartbeat Glow */
+@keyframes ctaButtonHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.35);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 28px rgba(238, 77, 45, 0.55);
+    }
+}
+
+@keyframes spinInfinite {
+    100% { transform: rotate(360deg); }
+}
+
+
+/* =========================================================
+   EMZET STORE - ENTERPRISE INDUSTRIAL CSS SYSTEM (V3.0)
+   ULTRA-RESPONSIVE, PERFECT SPACING & SINGLE-LINE FOOTER
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. KEYFRAMES & ANIMATION SYSTEM
+   --------------------------------------------------------- */
+
+/* Continuous Laser Beam Flow (Garis Neon Mengalir) */
+@keyframes continuousLaserFlow {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(280%);
+        opacity: 0;
+    }
+}
+
+/* Floating Icon Glow Effect */
+@keyframes iconGlowPulse {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 0 0 0 rgba(2, 195, 154, 0.4);
+    }
+    50% {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 0 0 10px rgba(2, 195, 154, 0);
+    }
+}
+
+/* Button CTA Heartbeat Glow */
+@keyframes ctaButtonHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.35);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 28px rgba(238, 77, 45, 0.55);
+    }
+}
+
+@keyframes spinInfinite {
+    100% { transform: rotate(360deg); }
+}
+/* =========================================================
+   EMZET STORE - MODERN INDUSTRIAL CSS SYSTEM (V4.0)
+   PRESERVING CONTINUOUS LASER ANIMATION + FIXED MOBILE LAYOUT
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. KEYFRAMES ANIMASI GARIS MENYALUR (CONTINUOUS LASER)
+   --------------------------------------------------------- */
+
+/* Animasi Garis Cahaya Mengalir Terus-Menerus */
+@keyframes continuousLaserFlow {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(280%);
+        opacity: 0;
+    }
+}
+
+/* Pulse Ikon Melayang */
+@keyframes iconGlowPulse {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 0 0 0 rgba(2, 195, 154, 0.4);
+    }
+    50% {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 0 0 10px rgba(2, 195, 154, 0);
+    }
+}
+
+/* Pulse Tombol CTA Shopee */
+@keyframes ctaButtonHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.35);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 28px rgba(238, 77, 45, 0.55);
+    }
+}
+
+@keyframes spinInfinite {
+    100% { transform: rotate(360deg); }
+}
+
+
+/* ---------------------------------------------------------
+   2. ABOUT SECTION & WORKFLOW (ALUR BELANJA)
+   --------------------------------------------------------- */
+.about-section {
+    padding: 2.5rem 0 4rem;
     width: 100%;
 }
 
-/* Layout Kontainer Utama Section About */
 .about-showcase-container {
     background: var(--card-bg, #ffffff);
-    border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-    border-radius: 24px;
-    padding: 2.5rem;
+    border: 1px solid var(--border, rgba(226, 232, 240, 0.8));
+    border-radius: 28px;
+    padding: 2.25rem;
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 2.5rem;
     align-items: center;
     position: relative;
-    overflow: visible;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
 }
 
-/* Sisi Kiri: Informasi Brand / Toko */
 .live-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 0.4rem 0.9rem;
-    background: rgba(2, 195, 154, 0.1);
+    padding: 0.45rem 1rem;
+    background: rgba(2, 195, 154, 0.08);
+    border: 1px solid rgba(2, 195, 154, 0.25);
     color: #02c39a;
-    border-radius: 50px;
+    border-radius: 99px;
     font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
 }
 
 .about-title {
-    font-size: 1.85rem;
+    font-size: 1.95rem;
     font-weight: 800;
     color: var(--text, #0f172a);
     margin-bottom: 1rem;
     line-height: 1.25;
+    letter-spacing: -0.02em;
 }
 
 .about-desc {
     color: var(--text-muted, #64748b);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.925rem;
+    line-height: 1.65;
     margin-bottom: 1.5rem;
 }
 
 .about-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.25rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text, #0f172a);
+    color: var(--text, #1e293b);
 }
 
 .about-features i {
     color: #02c39a;
-    margin-right: 4px;
+    margin-right: 6px;
 }
 
-/* Sisi Kanan: Frame Kartu Alur Belanja */
-.flow-card-container, .flow-card-box {
-    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(243, 247, 246, 0.9));
+/* =========================================================
+   PERBAIKAN TATA LETAK HEADER: ALUR BELANJA AFFILIATE AMAN
+   ========================================================= */
+
+/* Container Utama Frame */
+.flow-card-container, 
+.flow-card-box {
+    background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
     border: 1px solid rgba(2, 195, 154, 0.25);
-    border-radius: 20px;
-    padding: 2rem 1.25rem 1.5rem 1.25rem;
+    border-radius: 24px;
+    /* Memberikan ruang padding atas (2rem) dan bawah (1.8rem) yang sangat lega */
+    padding: 2rem 1.25rem 1.8rem 1.25rem;
     position: relative;
-    box-shadow: inset 0 0 20px rgba(2, 195, 154, 0.03);
+    box-shadow: 0 14px 35px -8px rgba(2, 195, 154, 0.1);
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Penataan Judul Header & Ikon Animasi */
 .flow-card-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-size: 0.8rem;
+    gap: 12px;                  /* Jarak antara ikon dan teks dibuat lebih renggang */
+    font-size: 0.95rem;          /* Ukuran teks lebih proporsional */
     font-weight: 800;
     color: #02c39a;
-    letter-spacing: 1.2px;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    /* PENTING: Jarak bawah yang lega agar tidak menempel dengan kartu 1, 2, 3 */
+    margin-bottom: 2rem; 
+    
+    padding: 0.6rem 1.25rem;
+    background: rgba(2, 195, 154, 0.06);
+    border: 1px solid rgba(2, 195, 154, 0.18);
+    border-radius: 99px;        /* Efek Pill Badge yang elegan */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(2, 195, 154, 0.08);
 }
 
+/* Animasi Putar Ikon Refresh/Sync di Header */
 .spin-icon {
-    animation: spinSlow 8s linear infinite;
+    font-size: 1.1rem;
+    color: #02c39a;
+    animation: spinInfinite 8s linear infinite;
+    flex-shrink: 0;
 }
 
-/* Wrapper Langkah Alur Belanja (Fleksibel & Presisi) */
-.affiliate-steps-wrapper, .flow-steps-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    position: relative !important;
-    z-index: 2 !important;
-    gap: 6px !important;
+@keyframes spinInfinite {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* KARTU ALUR BELANJA (Step Card 01, 02, 03) */
-.affiliate-step-card, .flow-step-item {
-    flex: 1 1 0 !important;
-    max-width: 31% !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(2, 195, 154, 0.25) !important;
-    border-radius: 16px !important;
-    padding: 1.1rem 0.4rem 0.9rem 0.4rem !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-    cursor: pointer !important;
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+/* Responsive khusus layar HP agar header tetap bagus dan tidak sempit */
+@media (max-width: 640px) {
+    .flow-card-container, 
+    .flow-card-box {
+        padding: 1.5rem 0.75rem 1.5rem 0.75rem;
+    }
+
+    .flow-card-header {
+        font-size: 0.825rem;
+        padding: 0.5rem 1rem;
+        gap: 8px;
+        margin-bottom: 1.5rem;   /* Tetap memberi jarak 1.5rem dari kartu di HP */
+    }
+
+    .spin-icon {
+        font-size: 0.95rem;
+    }
 }
 
-/* Efek Ombak Animasi Berurutan (1 -> 2 -> 3) */
-.affiliate-step-card:nth-child(1), .flow-step-item:nth-child(1) { animation: activeStepWave 4.5s infinite ease-in-out 0s; }
-.affiliate-step-card:nth-child(3), .flow-step-item:nth-child(3) { animation: activeStepWave 4.5s infinite ease-in-out 1.5s; }
-.affiliate-step-card:nth-child(5), .flow-step-item:nth-child(5) { animation: activeStepWave 4.5s infinite ease-in-out 3s; }
-
-/* Efek Hover Interaktif Kartu */
-.affiliate-step-card:hover, .flow-step-item:hover {
-    transform: translateY(-7px) scale(1.04) !important;
-    border-color: #02c39a !important;
-    box-shadow: 0 14px 28px rgba(2, 195, 154, 0.22) !important;
-    z-index: 10 !important;
+/* Flex Wrapper Utama untuk 3 Kartu & Garis Menyalur */
+.affiliate-steps-wrapper, 
+.flow-steps-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    gap: 6px;
+    box-sizing: border-box;
 }
 
-.step-icon, .step-icon-box {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #02c39a, #028090) !important;
-    color: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 1rem !important;
-    margin: 0 auto 8px auto !important;
-    transition: transform 0.3s ease !important;
-    box-shadow: 0 4px 12px rgba(2, 195, 154, 0.3) !important;
+/* Kartu Langkah Alur Belanja */
+.affiliate-step-card, 
+.flow-step-item {
+    flex: 1 1 0%;
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid rgba(2, 195, 154, 0.22);
+    border-radius: 18px;
+    padding: 1.15rem 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.02);
 }
 
-.affiliate-step-card:hover .step-icon, .flow-step-item:hover .step-icon-box {
-    transform: rotate(10deg) scale(1.15) !important;
+.affiliate-step-card:hover, 
+.flow-step-item:hover {
+    transform: translateY(-4px);
+    border-color: #02c39a;
+    box-shadow: 0 12px 24px rgba(2, 195, 154, 0.16);
+    z-index: 5;
 }
 
-.step-title, .step-num {
-    font-size: 0.78rem !important;
-    font-weight: 800 !important;
-    color: #0f172a !important;
-    margin-bottom: 2px !important;
+/* Icon Box Hijau Teal */
+.step-icon, 
+.step-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #02c39a 0%, #028090 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin: 0 auto 10px auto;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 14px rgba(2, 195, 154, 0.25);
 }
 
-.step-desc, .step-text {
-    font-size: 0.62rem !important;
-    color: #64748b !important;
-    line-height: 1.2 !important;
-    margin: 0 !important;
+.affiliate-step-card:hover .step-icon, 
+.flow-step-item:hover .step-icon-box {
+    transform: scale(1.1) rotate(6deg);
 }
 
-/* --- GARIS LASER PENYALUR ALUR BELANJA (FLOW LINE / BEAM) --- */
+/* Judul Step (1. Pilih, 2. Checkout, 3. Aman) */
+.step-title, 
+.step-num {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+/* Teks Keterangan Kecil */
+.step-desc, 
+.step-text {
+    font-size: 0.7rem;
+    color: #64748b;
+    line-height: 1.3;
+    margin: 0;
+    word-break: break-word;
+    padding: 0 2px;
+}
+
+/* --- ANIMASI GARIS MENYALUR (CONTINUOUS LASER LINE) --- */
 .flow-line {
-    flex: 0 0 12% !important;
-    height: 4px !important;
-    background: rgba(2, 195, 154, 0.15) !important;
-    border-radius: 10px !important;
-    position: relative !important;
-    overflow: hidden !important;
-    margin: 0 2px !important;
-    align-self: center !important;
+    flex: 0 0 12%;
+    height: 3px;
+    background: rgba(2, 195, 154, 0.15);
+    border-radius: 99px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 2px;
+    align-self: center;
 }
 
-/* Sinar Sinar Laser Neon yang Mengalir Terus-Menerus */
-.line-pulse, .laser-beam {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 60% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, #02c39a, #00f2fe, #ffffff, transparent) !important;
-    border-radius: 10px !important;
-    animation: flowLaserBeam 1.6s infinite linear !important;
-    box-shadow: 0 0 8px #02c39a;
+.line-pulse, 
+.laser-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #02c39a 40%, #00f2fe 70%, #ffffff 100%);
+    border-radius: 99px;
+    animation: continuousLaserFlow 1.6s infinite linear;
+    box-shadow: 0 0 8px #02c39a, 0 0 3px #00f2fe;
 }
 
-/* Delay Animasi Garis Kedua Agar Efek Menyambung */
-.flow-line:nth-of-type(2) .line-pulse {
-    animation-delay: 0.5s !important;
+.flow-line:nth-of-type(2) .line-pulse,
+.flow-line:nth-of-type(2) .laser-beam {
+    animation-delay: 0.5s;
 }
 
 
 /* ---------------------------------------------------------
-   3. GRID PRODUK & ANIMASI TOMBOL INTERAKTIF
+   3. PRODUCT GRID SYSTEM
    --------------------------------------------------------- */
 #product-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
     align-items: stretch;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .product-card {
@@ -1158,41 +1393,49 @@ body {
     justify-content: space-between;
     height: 100%;
     box-sizing: border-box;
+    border-radius: 18px;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
 @media (min-width: 768px) {
     #product-container {
         grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+        gap: 20px;
     }
 }
 
-/* Interaksi Tombol Chips & Produk */
-.cat-chip, .sub-chip {
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+.cat-chip, 
+.sub-chip {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
 }
 
-.cat-chip:hover, .sub-chip:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(2, 195, 154, 0.25);
+.cat-chip:hover, 
+.sub-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 195, 154, 0.2);
 }
 
 .product-actions button:hover {
-    background: rgba(2, 195, 154, 0.22) !important;
-    color: #016a78 !important;
+    background: rgba(2, 195, 154, 0.15);
+    color: #028090;
     transform: translateY(-2px);
 }
 
 .product-actions a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(2, 195, 154, 0.45) !important;
+    box-shadow: 0 8px 20px rgba(2, 195, 154, 0.4);
 }
 
 
 /* ---------------------------------------------------------
-   4. MODAL & KARTU PENUTUP (END STORE CARD)
+   4. MODALS & END-STORE CARDS
    --------------------------------------------------------- */
 .modal {
     display: none;
@@ -1201,84 +1444,88 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    padding: 1rem;
+    padding: 1.25rem;
 }
 
 .modal-content {
     background: var(--bg-secondary, #ffffff);
-    padding: 1.5rem;
-    border-radius: 20px;
-    max-width: 550px;
+    padding: 2rem;
+    border-radius: 24px;
+    max-width: 540px;
     width: 100%;
     position: relative;
-    border: 1px solid var(--border);
-    max-height: 90vh;
+    border: 1px solid var(--border, rgba(226, 232, 240, 0.8));
+    max-height: 88vh;
     overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 @media(min-width: 768px) {
-    .modal-content { padding: 2.5rem; }
+    .modal-content { padding: 2.75rem; }
 }
 
 .close-modal {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
+    top: 18px;
+    right: 22px;
+    font-size: 1.4rem;
     cursor: pointer;
-    color: var(--text-muted);
+    color: var(--text-muted, #94a3b8);
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: #0f172a;
 }
 
 .modal-cta-buy {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 0.85rem;
-    font-size: 1rem;
+    gap: 10px;
+    padding: 0.95rem;
+    font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: 14px;
-    background: linear-gradient(135deg, #02c39a, #028090);
+    background: linear-gradient(135deg, #02c39a 0%, #028090 100%);
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(2, 195, 154, 0.45);
-    animation: buttonHeartbeat 2.2s infinite ease-in-out;
+    box-shadow: 0 6px 20px rgba(2, 195, 154, 0.4);
 }
 
 .end-store-card-pro {
     position: relative;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(235, 248, 255, 0.7));
-    backdrop-filter: blur(16px);
-    border: 2px solid rgba(2, 195, 154, 0.3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 249, 255, 0.85));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(2, 195, 154, 0.3);
     border-radius: 24px;
-    padding: 2.2rem 1.6rem;
+    padding: 2.5rem 1.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
 }
 
 .end-store-icon-ring {
     width: 64px;
     height: 64px;
-    background: linear-gradient(135deg, #02c39a, #028090);
+    background: linear-gradient(135deg, #02c39a 0%, #028090 100%);
     color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    margin-bottom: 1.1rem;
-    animation: iconPulseFloat 2.5s infinite ease-in-out;
+    margin-bottom: 1.25rem;
+    animation: iconGlowPulse 3s infinite ease-in-out;
 }
 
 .btn-ultimate-shopee {
@@ -1287,211 +1534,249 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.85rem 1.25rem;
+    padding: 0.95rem 1.35rem;
     background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%);
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.925rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(238, 77, 45, 0.45);
-    animation: buttonHeartbeat 2.2s infinite ease-in-out;
+    animation: ctaButtonHeartbeat 2.5s infinite ease-in-out;
 }
 
 
 /* ---------------------------------------------------------
-   5. FOOTER RATA KIRI TOTAL (PREMIUM DARK NAVY SLATE)
+   5. FOOTER (DARK SLATE & SINGLE LINE COPYRIGHT)
    --------------------------------------------------------- */
 .footer {
-    width: 100% !important;
-    background: #0f172a !important;
-    color: #f8fafc !important;
-    padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
-    margin-top: 4rem !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-sizing: border-box !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    width: 100%;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 4rem 1.75rem 2rem 1.75rem;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 .footer-content {
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    display: grid !important;
-    grid-template-columns: 1.5fr 1fr !important;
-    gap: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .footer-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .footer-brand .logo {
-    font-size: 1.35rem !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    margin-bottom: 0.75rem !important;
-    display: inline-flex !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 0.85rem;
+    display: inline-flex;
+    letter-spacing: -0.02em;
 }
 
 .footer-brand .logo-highlight {
-    color: #02c39a !important;
+    color: #02c39a;
 }
 
 .brand-desc {
-    font-size: 0.825rem !important;
-    line-height: 1.6 !important;
-    color: #94a3b8 !important;
-    max-width: 360px !important;
-    margin: 0 0 1.25rem 0 !important;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: #94a3b8;
+    max-width: 380px;
+    margin: 0 0 1.5rem 0;
 }
 
 .footer-group {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    width: 100%;
 }
 
 .footer-col {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .footer-links-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    gap: 0.65rem !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
 }
 
 .footer-links-list a {
-    color: #94a3b8 !important;
-    text-decoration: none !important;
-    font-size: 0.85rem !important;
-    font-weight: 500 !important;
-    display: inline-block !important;
-    transition: all 0.2s ease-in-out !important;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
 }
 
 .footer-links-list a:hover {
-    color: #02c39a !important;
-    transform: translateX(4px) !important;
+    color: #02c39a;
+    transform: translateX(4px);
 }
 
 .social-icons {
-    display: flex !important;
-    gap: 10px !important;
-    justify-content: flex-start !important;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
 }
 
 .social-icon {
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 10px !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #f8fafc !important;
-    text-decoration: none !important;
-    font-size: 0.9rem !important;
-    transition: all 0.25s ease !important;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
 }
 
 .social-icon:hover {
-    background: #02c39a !important;
-    color: #0f172a !important;
-    border-color: #02c39a !important;
-    transform: translateY(-3px) !important;
+    background: #02c39a;
+    color: #0f172a;
+    border-color: #02c39a;
+    transform: translateY(-3px);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding-top: 1.5rem !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    text-align: left !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.75rem;
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    overflow: hidden;
 }
 
 .footer-bottom p {
-    font-size: 0.775rem !important;
-    color: #64748b !important;
-    margin: 0 !important;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
 }
 
 
 /* ---------------------------------------------------------
-   6. RESPONSIVE MOBILE ADJUSTMENTS (MAX-WIDTH: 768PX)
+   6. RESPONSIVE BREAKPOINTS (DESKTOP, TABLET & MOBILE)
    --------------------------------------------------------- */
-@media (max-width: 768px) {
-    html, body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
+@media (max-width: 868px) {
     .about-showcase-container {
-        grid-template-columns: 1fr !important;
-        padding: 1.25rem 0.8rem !important;
-        gap: 1.5rem !important;
+        grid-template-columns: 1fr;
+        padding: 1.75rem 1.25rem;
+        gap: 2rem;
     }
 
-    .flow-card-container, .flow-card-box {
-        padding: 1.25rem 0.5rem !important;
+    .about-title {
+        font-size: 1.65rem;
+    }
+}
+
+/* KHUSUS DISPLAY HP: Tetap Menjaga Garis Menyalur Tapi Padding Lega */
+@media (max-width: 640px) {
+    .about-section {
+        padding: 2rem 0 3rem;
     }
 
-    .affiliate-step-card, .flow-step-item {
-        max-width: 30% !important;
-        padding: 0.75rem 0.2rem !important;
+    .flow-card-container, 
+    .flow-card-box {
+        padding: 1.25rem 0.65rem 1.15rem 0.65rem;
+        border-radius: 20px;
     }
 
-    .step-icon, .step-icon-box {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 0.8rem !important;
-        margin-bottom: 4px !important;
+    .flow-card-header {
+        font-size: 0.8rem;
+        margin-bottom: 1.15rem;
     }
 
-    .step-title, .step-num {
-        font-size: 0.7rem !important;
+    /* Penataan horizontal di HP dengan padding proporsional */
+    .affiliate-steps-wrapper, 
+    .flow-steps-grid {
+        gap: 4px;
     }
 
-    .step-desc, .step-text {
-        font-size: 0.55rem !important;
+    .affiliate-step-card, 
+    .flow-step-item {
+        padding: 0.95rem 0.25rem;
+        border-radius: 14px;
     }
 
+    .step-icon, 
+    .step-icon-box {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+        margin-bottom: 6px;
+        border-radius: 11px;
+    }
+
+    .step-title, 
+    .step-num {
+        font-size: 0.775rem;
+        margin-bottom: 2px;
+    }
+
+    .step-desc, 
+    .step-text {
+        font-size: 0.625rem;
+        line-height: 1.25;
+    }
+
+    /* Ukuran Garis Cahaya Menyalur di HP */
     .flow-line {
-        flex: 0 0 10% !important;
-        height: 3px !important;
+        flex: 0 0 8%;
+        height: 2.5px;
+        margin: 0 1px;
     }
 
     .footer {
-        padding: 2.5rem 1.25rem 1.25rem 1.25rem !important;
+        padding: 3rem 1rem 1.5rem 1rem;
     }
 
     .footer-content {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .footer-group {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1.2rem !important;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-bottom p {
+        font-size: clamp(0.55rem, 2.5vw, 0.75rem) !important;
+        letter-spacing: -0.2px;
     }
 }
+
