@@ -235,7 +235,7 @@ function openModal(id) {
         <p class="modal-desc">${product.description || 'Silakan cek langsung detail lengkap produk ini melalui tombol di bawah.'}</p>
         
         <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="modal-cta-buy">
-            <span>Amankan Promo & Beli Sekarang via ${product.platform || 'Shopee'}</span> 
+            <span>Beli Sekarang via ${product.platform || 'Shopee'}</span> 
             <i class="fas fa-hand-point-right pointing-icon"></i>
         </a>
     `;
