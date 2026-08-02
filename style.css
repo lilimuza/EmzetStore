@@ -881,401 +881,71 @@ body {
     box-shadow: 0 6px 20px rgba(2, 195, 154, 0.6);
 }
 
-/* ==========================================
-   9. ABOUT SECTION, MODAL & FOOTER
-   ================================---------- */
-.about-section { padding: 3rem 0 5rem; }
-.about-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2rem 1.2rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    backdrop-filter: blur(12px);
+/* =========================================================
+   EMZET STORE - COMPLETE & UNIFIED PROFESSIONAL CSS SYSTEM
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. KEYFRAMES & ANIMASI UTAMA
+   --------------------------------------------------------- */
+
+/* Animasi Sinar Laser Garis Penyalur (Infinite Flowing) */
+@keyframes flowLaserBeam {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(300%);
+    }
 }
 
-@media(min-width: 768px) {
-    .about-card { grid-template-columns: 2fr 1fr; padding: 3rem; }
+/* Animasi Gelombang Berurutan Kartu Langkah (Step Wave) */
+@keyframes activeStepWave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        border-color: rgba(2, 195, 154, 0.25);
+        box-shadow: 0 4px 12px rgba(2, 195, 154, 0.05);
+    }
+    33% {
+        transform: translateY(-6px) scale(1.03);
+        border-color: #02c39a;
+        box-shadow: 0 12px 25px rgba(2, 195, 154, 0.25);
+    }
 }
 
-.about-info h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; }
-.about-info p { color: var(--text-muted); font-size: 0.9rem; }
-.about-stats { display: flex; gap: 2rem; }
-.stat-item h4 {
-    font-size: 1.6rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.stat-item p { color: var(--text-muted); font-size: 0.8rem; }
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    padding: 1rem;
-}
-
-.modal-content {
-    background: var(--bg-secondary);
-    padding: 1.5rem;
-    border-radius: 20px;
-    max-width: 550px;
-    width: 100%;
-    position: relative;
-    border: 1px solid var(--border);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-@media(min-width: 768px) {
-    .modal-content { padding: 2.5rem; }
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-muted);
-}
-
-.modal-cta-buy {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-    padding: 0.85rem;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #02c39a, #028090);
-    color: #ffffff;
-    box-shadow: 0 6px 20px rgba(2, 195, 154, 0.45);
-    animation: pulseModalButton 2s infinite ease-in-out;
-    transition: transform 0.2s ease;
-}
-
-.modal-cta-buy:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(2, 195, 154, 0.65);
-}
-
-.footer {
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
-    padding: 4rem 0 2rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-@media(min-width: 768px) {
-    .footer-content { grid-template-columns: 2fr 1fr 1fr; }
-}
-
-.footer-brand p { color: var(--text-muted); margin-top: 0.75rem; font-size: 0.9rem; max-width: 320px; }
-.footer-links h4, .footer-social h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
-.footer-links a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 0.5rem; font-size: 0.9rem; }
-.social-icons { display: flex; gap: 0.75rem; }
-.social-icon {
-    width: 38px;
-    height: 38px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text);
-    text-decoration: none;
-}
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid var(--border);
-    padding-top: 1.5rem;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-/* ==========================================================
-   KARTU PENUTUP AKHIR PRODUK (GLASSMORPHISM & BLUR EFFECT)
-   ========================================================== */
-.end-store-card-pro {
-    position: relative;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(235, 248, 255, 0.7));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 2px solid rgba(2, 195, 154, 0.3);
-    border-radius: 24px;
-    padding: 2.2rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    min-height: 340px;
-}
-
-.end-store-glow-bg {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(2, 195, 154, 0.12) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.end-store-card-pro:hover .end-store-glow-bg {
-    opacity: 1;
-}
-
-.end-store-card-pro:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: #02c39a;
-    box-shadow: 0 20px 50px rgba(2, 195, 154, 0.2);
-}
-
-.end-store-content-pro {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.end-store-icon-ring {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, #02c39a, #028090);
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 1.1rem;
-    box-shadow: 0 8px 25px rgba(2, 195, 154, 0.4);
-    animation: iconPulseFloat 2.5s infinite ease-in-out;
-}
-
-.end-store-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.3px;
-}
-
-.end-store-desc {
-    font-size: 0.82rem;
-    color: #64748b;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-}
-
-.btn-ultimate-shopee {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.85rem 1.25rem;
-    background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(238, 77, 45, 0.45);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    animation: buttonHeartbeat 2.2s infinite ease-in-out;
-}
-
-.btn-shine-effect {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transition: 0.6s ease;
-}
-
-.btn-ultimate-shopee:hover .btn-shine-effect {
-    left: 100%;
-}
-
-.btn-ultimate-shopee:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(238, 77, 45, 0.65);
-    background: linear-gradient(135deg, #ff5733 0%, #ff8048 100%);
-}
-
-.btn-ultimate-shopee:active {
-    transform: translateY(-1px);
-}
-
-.btn-label-text {
-    z-index: 2;
-    letter-spacing: 0.4px;
-}
-
-.btn-arrow-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 2;
-}
-
-.btn-ultimate-shopee:hover .btn-arrow-badge {
-    transform: translateX(6px) scale(1.1);
-    background: rgba(255, 255, 255, 0.35);
-}
-
-.btn-arrow-badge i {
-    font-size: 0.75rem;
-    color: #ffffff;
-}
-
+/* Animasi Ring Pulse Ikon */
 @keyframes iconPulseFloat {
-    0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 8px 25px rgba(2, 195, 154, 0.4); }
-    50% { transform: translateY(-6px) scale(1.05); box-shadow: 0 14px 30px rgba(2, 195, 154, 0.6); }
+    0%, 100% { 
+        transform: translateY(0) scale(1); 
+        box-shadow: 0 8px 25px rgba(2, 195, 154, 0.4); 
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.05); 
+        box-shadow: 0 14px 30px rgba(2, 195, 154, 0.6); 
+    }
 }
 
+/* Animasi Tombol Modal & Shopee */
 @keyframes buttonHeartbeat {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.5); }
     50% { transform: scale(1.02); box-shadow: 0 0 18px 6px rgba(238, 77, 45, 0.3); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(238, 77, 45, 0); }
 }
-/* --- LAYOUT GRID PRODUK PERSEGI & KONSISTEN (STYLE SHOPEE) --- */
-#product-container {
-    display: grid;
-    /* Membuat 2 kolom di HP & otomatis bertambah di layar lebar */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 12px;
-    align-items: stretch; /* PENTING: Memaksa semua kotak memiliki tinggi rata & seragam */
-    margin-top: 15px;
+
+@keyframes spinSlow {
+    100% { transform: rotate(360deg); }
 }
 
-/* Memastikan kartu produk mengisi tinggi grid secara penuh */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
+
+/* ---------------------------------------------------------
+   2. ABOUT SECTION & ULTRA-DYNAMIC WORKFLOW (ALUR BELANJA)
+   --------------------------------------------------------- */
+.about-section { 
+    padding: 3rem 0 5rem; 
+    width: 100%;
 }
 
-/* Untuk layar PC/Desktop (Layar > 768px): Tampilan bisa 4 atau 5 kolom */
-@media (min-width: 768px) {
-    #product-container {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-    }
-}
-/* =========================================================
-   ANIMASI INTERAKSI TOMBOL-TOMBOL (KATEGORI & AKSI PRODUK)
-   ========================================================= */
-
-/* --- 1. Tombol Kategori Utama & Sub-Kategori (Chip Button) --- */
-.cat-chip, .sub-chip {
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-/* Efek Hover Kategori: Terangkat sedikit & bayangan lembut */
-.cat-chip:hover, .sub-chip:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(2, 195, 154, 0.25);
-}
-
-/* Efek Tekan (Active/Click) Kategori */
-.cat-chip:active, .sub-chip:active {
-    transform: translateY(0) scale(0.97);
-}
-
-/* --- 2. Tombol Detail (Modal) pada Kartu Produk --- */
-.product-actions button {
-    transition: all 0.25s ease-in-out !important;
-    position: relative;
-}
-
-.product-actions button:hover {
-    background: rgba(2, 195, 154, 0.22) !important;
-    color: #016a78 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(2, 195, 154, 0.15);
-}
-
-.product-actions button:active {
-    transform: translateY(0) scale(0.96);
-}
-
-/* --- 3. Tombol Beli pada Kartu Produk --- */
-.product-actions a {
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-}
-
-.product-actions a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(2, 195, 154, 0.45) !important;
-    filter: brightness(1.05);
-}
-
-.product-actions a:hover i {
-    transform: translateX(3px);
-    transition: transform 0.2s ease;
-}
-
-.product-actions a:active {
-    transform: translateY(0) scale(0.96);
-}
-/* =========================================================
-   ULTRA-DYNAMIC & INTERACTIVE PROCESS SECTION (EMZETSTORE)
-   ========================================================= */
-
-/* Outer Layout Container */
+/* Layout Kontainer Utama Section About */
 .about-showcase-container {
     background: var(--card-bg, #ffffff);
     border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
@@ -1286,19 +956,11 @@ body {
     gap: 2.5rem;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 992px) {
-    .about-showcase-container {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        gap: 2rem;
-    }
-}
-
-/* Left Section Content */
+/* Sisi Kiri: Informasi Brand / Toko */
 .live-badge {
     display: inline-flex;
     align-items: center;
@@ -1342,14 +1004,16 @@ body {
     margin-right: 4px;
 }
 
-/* Right Section: Workflow Container */
-.flow-card-container {
-    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(243, 247, 246, 0.85));
+/* Sisi Kanan: Frame Kartu Alur Belanja */
+.flow-card-container, .flow-card-box {
+    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(243, 247, 246, 0.9));
     border: 1px solid rgba(2, 195, 154, 0.25);
     border-radius: 20px;
     padding: 2rem 1.25rem 1.5rem 1.25rem;
     position: relative;
     box-shadow: inset 0 0 20px rgba(2, 195, 154, 0.03);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .flow-card-header {
@@ -1369,195 +1033,412 @@ body {
     animation: spinSlow 8s linear infinite;
 }
 
-@keyframes spinSlow {
-    100% { transform: rotate(360deg); }
+/* Wrapper Langkah Alur Belanja (Fleksibel & Presisi) */
+.affiliate-steps-wrapper, .flow-steps-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    gap: 6px !important;
 }
 
-/* GARIS LASER PROGRESS UTAMA (EFEK ALIRAN NEON) */
-.flow-laser-line {
-    position: absolute;
-    top: 52%;
-    left: 8%;
-    right: 8%;
-    height: 3px;
-    background: rgba(2, 195, 154, 0.15);
-    z-index: 1;
-    border-radius: 10px;
+/* KARTU ALUR BELANJA (Step Card 01, 02, 03) */
+.affiliate-step-card, .flow-step-item {
+    flex: 1 1 0 !important;
+    max-width: 31% !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(2, 195, 154, 0.25) !important;
+    border-radius: 16px !important;
+    padding: 1.1rem 0.4rem 0.9rem 0.4rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+/* Efek Ombak Animasi Berurutan (1 -> 2 -> 3) */
+.affiliate-step-card:nth-child(1), .flow-step-item:nth-child(1) { animation: activeStepWave 4.5s infinite ease-in-out 0s; }
+.affiliate-step-card:nth-child(3), .flow-step-item:nth-child(3) { animation: activeStepWave 4.5s infinite ease-in-out 1.5s; }
+.affiliate-step-card:nth-child(5), .flow-step-item:nth-child(5) { animation: activeStepWave 4.5s infinite ease-in-out 3s; }
+
+/* Efek Hover Interaktif Kartu */
+.affiliate-step-card:hover, .flow-step-item:hover {
+    transform: translateY(-7px) scale(1.04) !important;
+    border-color: #02c39a !important;
+    box-shadow: 0 14px 28px rgba(2, 195, 154, 0.22) !important;
+    z-index: 10 !important;
+}
+
+.step-icon, .step-icon-box {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #02c39a, #028090) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1rem !important;
+    margin: 0 auto 8px auto !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(2, 195, 154, 0.3) !important;
+}
+
+.affiliate-step-card:hover .step-icon, .flow-step-item:hover .step-icon-box {
+    transform: rotate(10deg) scale(1.15) !important;
+}
+
+.step-title, .step-num {
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 2px !important;
+}
+
+.step-desc, .step-text {
+    font-size: 0.62rem !important;
+    color: #64748b !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+}
+
+/* --- GARIS LASER PENYALUR ALUR BELANJA (FLOW LINE / BEAM) --- */
+.flow-line {
+    flex: 0 0 12% !important;
+    height: 4px !important;
+    background: rgba(2, 195, 154, 0.15) !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin: 0 2px !important;
+    align-self: center !important;
+}
+
+/* Sinar Sinar Laser Neon yang Mengalir Terus-Menerus */
+.line-pulse, .laser-beam {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 60% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, #02c39a, #00f2fe, #ffffff, transparent) !important;
+    border-radius: 10px !important;
+    animation: flowLaserBeam 1.6s infinite linear !important;
+    box-shadow: 0 0 8px #02c39a;
+}
+
+/* Delay Animasi Garis Kedua Agar Efek Menyambung */
+.flow-line:nth-of-type(2) .line-pulse {
+    animation-delay: 0.5s !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. GRID PRODUK & ANIMASI TOMBOL INTERAKTIF
+   --------------------------------------------------------- */
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+    align-items: stretch;
+    margin-top: 15px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
-.laser-beam {
-    width: 40%;
+@media (min-width: 768px) {
+    #product-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Interaksi Tombol Chips & Produk */
+.cat-chip, .sub-chip {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    cursor: pointer;
+}
+
+.cat-chip:hover, .sub-chip:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(2, 195, 154, 0.25);
+}
+
+.product-actions button:hover {
+    background: rgba(2, 195, 154, 0.22) !important;
+    color: #016a78 !important;
+    transform: translateY(-2px);
+}
+
+.product-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(2, 195, 154, 0.45) !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. MODAL & KARTU PENUTUP (END STORE CARD)
+   --------------------------------------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, #02c39a, #00f2fe, transparent);
-    animation: laserScan 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    box-shadow: 0 0 10px #02c39a;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
 }
 
-@keyframes laserScan {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(350%); }
+.modal-content {
+    background: var(--bg-secondary, #ffffff);
+    padding: 1.5rem;
+    border-radius: 20px;
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    border: 1px solid var(--border);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-/* Workflow Grid */
-.flow-steps-grid {
+@media(min-width: 768px) {
+    .modal-content { padding: 2.5rem; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.modal-cta-buy {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 8px;
-    position: relative;
-    z-index: 2;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #02c39a, #028090);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(2, 195, 154, 0.45);
+    animation: buttonHeartbeat 2.2s infinite ease-in-out;
 }
 
-/* Individual Step Box */
-.flow-step-item {
-    flex: 1;
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 16px;
-    padding: 1.2rem 0.5rem 0.9rem 0.5rem;
-    text-align: center;
+.end-store-card-pro {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(235, 248, 255, 0.7));
+    backdrop-filter: blur(16px);
+    border: 2px solid rgba(2, 195, 154, 0.3);
+    border-radius: 24px;
+    padding: 2.2rem 1.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Badge Angka di Pojok Kanan Atas Kartu */
-.step-badge {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    font-size: 0.62rem;
-    font-weight: 800;
-    color: var(--text-muted, #94a3b8);
-    background: rgba(0, 0, 0, 0.04);
-    padding: 2px 6px;
-    border-radius: 6px;
-}
-
-/* Icon Container & Outer Ripple Ring */
-.step-icon-box {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
+.end-store-icon-ring {
+    width: 64px;
+    height: 64px;
     background: linear-gradient(135deg, #02c39a, #028090);
     color: #ffffff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.1rem;
+    animation: iconPulseFloat 2.5s infinite ease-in-out;
+}
+
+.btn-ultimate-shopee {
     position: relative;
-    transition: transform 0.3s ease;
-}
-
-.ripple-ring {
-    position: absolute;
-    inset: -4px;
-    border: 2px solid #02c39a;
-    border-radius: 50%;
-    opacity: 0;
-}
-
-/* Typography Step */
-.step-num {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--text, #0f172a);
-    line-height: 1.2;
-}
-
-.step-text {
-    font-size: 0.68rem;
-    color: var(--text-muted, #64748b);
-    margin: 3px 0 0 0;
-    white-space: nowrap;
-}
-
-/* Panah Penghubung Interaktif */
-.flow-arrow-connector {
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 2;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(238, 77, 45, 0.45);
+    animation: buttonHeartbeat 2.2s infinite ease-in-out;
 }
 
-.arrow-pulse, .arrow-wave {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 1px solid rgba(2, 195, 154, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #02c39a;
-    font-size: 0.65rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+/* ---------------------------------------------------------
+   5. FOOTER RATA KIRI TOTAL (PREMIUM DARK NAVY SLATE)
+   --------------------------------------------------------- */
+.footer {
+    width: 100% !important;
+    background: #0f172a !important;
+    color: #f8fafc !important;
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
+    margin-top: 4rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-sizing: border-box !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-/* =========================================================
-   ANIMASI "ACTIVE STATE WAVE" BERANTAI (1 -> 2 -> 3)
-   ========================================================= */
-
-@keyframes activeStepWave {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        border-color: rgba(0, 0, 0, 0.08);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    }
-    30%, 60% {
-        transform: translateY(-6px) scale(1.04);
-        border-color: #02c39a;
-        box-shadow: 0 12px 25px rgba(2, 195, 154, 0.25);
-    }
+.footer-content {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr !important;
+    gap: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    align-items: flex-start !important;
+    text-align: left !important;
 }
 
-@keyframes ripplePulse {
-    0% { transform: scale(0.9); opacity: 0.8; }
-    100% { transform: scale(1.4); opacity: 0; }
+.footer-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
 }
 
-@keyframes arrowGlow {
-    0%, 100% { transform: scale(1); background: #ffffff; color: #02c39a; }
-    50% { transform: scale(1.25); background: #02c39a; color: #ffffff; box-shadow: 0 0 10px #02c39a; }
+.footer-brand .logo {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    margin-bottom: 0.75rem !important;
+    display: inline-flex !important;
 }
 
-/* MENJALANKAN ANIMASI BERURUTAN TERUS-MENERUS (LOOPING) */
-.step-1, .flow-step-item:nth-child(1) { animation: activeStepWave 4.5s infinite ease-in-out 0s; }
-.step-1 .ripple-ring, .flow-step-item:nth-child(1) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 0s; }
+.footer-brand .logo-highlight {
+    color: #02c39a !important;
+}
 
-.step-2, .flow-step-item:nth-child(3) { animation: activeStepWave 4.5s infinite ease-in-out 1.5s; }
-.step-2 .ripple-ring, .flow-step-item:nth-child(3) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 1.5s; }
+.brand-desc {
+    font-size: 0.825rem !important;
+    line-height: 1.6 !important;
+    color: #94a3b8 !important;
+    max-width: 360px !important;
+    margin: 0 0 1.25rem 0 !important;
+}
 
-.step-3, .flow-step-item:nth-child(5) { animation: activeStepWave 4.5s infinite ease-in-out 3s; }
-.step-3 .ripple-ring, .flow-step-item:nth-child(5) .ripple-ring { animation: ripplePulse 4.5s infinite ease-in-out 3s; }
+.footer-group {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
 
-.arrow-pulse, .arrow-wave { animation: arrowGlow 2.25s infinite ease-in-out; }
+.footer-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
 
-/* HOVER INTERAKTIF (EFEK REAKSI SAAT DITUNJUK KURSOR) */
-.flow-step-item:hover {
-    transform: translateY(-8px) scale(1.06) !important;
+.footer-links-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 0.65rem !important;
+}
+
+.footer-links-list a {
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.footer-links-list a:hover {
+    color: #02c39a !important;
+    transform: translateX(4px) !important;
+}
+
+.social-icons {
+    display: flex !important;
+    gap: 10px !important;
+    justify-content: flex-start !important;
+}
+
+.social-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #f8fafc !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+    transition: all 0.25s ease !important;
+}
+
+.social-icon:hover {
+    background: #02c39a !important;
+    color: #0f172a !important;
     border-color: #02c39a !important;
-    box-shadow: 0 15px 30px rgba(2, 195, 154, 0.35) !important;
-    background: #ffffff !important;
+    transform: translateY(-3px) !important;
 }
 
-.flow-step-item:hover .step-icon-box {
-    transform: rotate(12deg) scale(1.1);
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-top: 1.5rem !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
 }
-/* =========================================================
-   EMZET STORE - PERFECT MOBILE & INTERACTIVE UI (FIXED)
-   ========================================================= */
 
+.footer-bottom p {
+    font-size: 0.775rem !important;
+    color: #64748b !important;
+    margin: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. RESPONSIVE MOBILE ADJUSTMENTS (MAX-WIDTH: 768PX)
+   --------------------------------------------------------- */
 @media (max-width: 768px) {
-
-    /* --- 1. LAYOUT DASAR & ANTI-CLIPPING --- */
     html, body {
         overflow-x: hidden !important;
         width: 100% !important;
@@ -1565,387 +1446,52 @@ body {
         padding: 0 !important;
     }
 
-    /* Container Utama Section About */
-    .about-section {
-        width: 92% !important;
-        max-width: 92% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 0 !important;
-    }
-
     .about-showcase-container {
-        padding: 1.25rem !important;
-        overflow: visible !important; /* Agar efek hover/lift tidak terpotong */
-        border-radius: 20px !important;
-    }
-
-    .about-grid {
-        display: flex !important;
-        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        padding: 1.25rem 0.8rem !important;
         gap: 1.5rem !important;
     }
 
-    .about-info {
-        text-align: center !important;
+    .flow-card-container, .flow-card-box {
+        padding: 1.25rem 0.5rem !important;
     }
 
-    .about-tags {
-        justify-content: center !important;
-    }
-
-    /* --- 2. PERBAIKAN BINGKAI & ALUR BELANJA --- */
-    .flow-card-box {
-        width: 100% !important;
-        padding: 1.5rem 0.5rem 1.25rem 0.5rem !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-        border-radius: 16px !important;
-    }
-
-    .flow-header {
-        text-align: center !important;
-        width: 100% !important;
-        margin-bottom: 1rem !important;
-        font-size: 0.78rem !important;
-    }
-
-    /* Wrapper 3 Kartu Langkah (01, 02, 03) - Rata Tengah Presisi */
-    .affiliate-steps-wrapper {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important; /* KUNCI: Presisi di tengah layar */
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0.5rem 0 !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-    }
-
-    /* KARTU ALUR BELANJA - INTERAKTIF & RESPONSIP */
-    .affiliate-step-card {
-        flex: 1 1 0 !important;
+    .affiliate-step-card, .flow-step-item {
         max-width: 30% !important;
-        margin: 0 !important;
-        padding: 0.85rem 0.3rem !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        background: #ffffff !important;
-        border: 1px solid rgba(2, 195, 154, 0.25) !important;
-        border-radius: 14px !important;
-        box-shadow: 0 4px 12px rgba(2, 195, 154, 0.06) !important;
-        position: relative !important;
-        z-index: 1 !important;
-        
-        /* Animasi Transisi Halus */
-        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                    box-shadow 0.35s ease, 
-                    border-color 0.35s ease !important;
-        will-change: transform, box-shadow;
+        padding: 0.75rem 0.2rem !important;
     }
 
-    /* EFEK INTERAKTIF: Mengambang Tanpa Terpotong Saat Disentuh / Hover */
-    .affiliate-step-card:hover,
-    .affiliate-step-card:active {
-        transform: translateY(-5px) scale(1.02) !important; 
-        border-color: #02c39a !important;
-        box-shadow: 0 10px 20px rgba(2, 195, 154, 0.2) !important;
-        z-index: 5 !important;
-    }
-
-    /* Animasi Ikon Saat Disentuh */
-    .affiliate-step-card:hover .step-icon,
-    .affiliate-step-card:active .step-icon {
-        transform: scale(1.1) !important;
-        transition: transform 0.3s ease !important;
-    }
-
-    .step-icon {
+    .step-icon, .step-icon-box {
         width: 32px !important;
         height: 32px !important;
         font-size: 0.8rem !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
     }
 
-    .step-title {
-        font-size: 0.75rem !important;
-        font-weight: 700 !important;
-        color: #0f172a !important;
+    .step-title, .step-num {
+        font-size: 0.7rem !important;
     }
 
-    .step-desc {
-        font-size: 0.58rem !important;
-        line-height: 1.1 !important;
+    .step-desc, .step-text {
+        font-size: 0.55rem !important;
     }
 
-    /* Panah Penyalur Antar-Kartu */
-    .flow-arrow {
-        flex: 0 0 auto !important;
-        margin: 0 3px !important;
-        color: #02c39a !important;
-        opacity: 0.8 !important;
-        font-size: 0.65rem !important;
+    .flow-line {
+        flex: 0 0 10% !important;
+        height: 3px !important;
     }
 
-    .desktop-arrow { display: inline-block !important; }
-    .mobile-arrow { display: none !important; } /* Tetap horizontal di HP agar kompak */
-
-    /* --- 3. FOOTER PRO & COPYRIGHT PRESISI 1 BARIS --- */
     .footer {
-        width: 100% !important;
-        margin-top: 3.5rem !important;
-        padding: 2.5rem 1rem 1.5rem 1rem !important;
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
-        border-top: 1px solid #e2e8f0 !important;
-        box-sizing: border-box !important;
-        text-align: center !important;
+        padding: 2.5rem 1.25rem 1.25rem 1.25rem !important;
     }
 
     .footer-content {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 1.5rem !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        padding-bottom: 1.5rem !important;
-    }
-
-    .footer-brand {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-
-    .brand-desc {
-        max-width: 100% !important;
-        font-size: 0.8rem !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
 
     .footer-group {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        width: 100% !important;
-        gap: 1rem !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
     }
-
-    .footer-col {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    .footer-links-list {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 0.4rem !important;
-    }
-
-    .social-icons {
-        justify-content: center !important;
-    }
-
-    /* Copyright 1 Baris Sejajar & Anggun */
-    .footer-bottom {
-        margin-top: 1rem !important;
-        padding-top: 1.25rem !important;
-        border-top: 1px solid #e2e8f0 !important;
-        width: 100% !important;
-        background: transparent !important;
-    }
-
-    .footer-bottom p {
-        white-space: nowrap !important;
-        font-size: clamp(0.6rem, 2.5vw, 0.78rem) !important;
-        text-align: center !important;
-        color: #94a3b8 !important;
-        margin: 0 !important;
-        letter-spacing: -0.01em !important;
-    }
-}
-/* =========================================================
-   PERBAIKAN FOOTER TOTAL (MENIMPA GAYA DEFAULT BROWSER)
-   ========================================================= */
-
-/* 1. Hilangkan Titik Bullet & Reset Padding List */
-ul.footer-links-list,
-.footer-links-list {
-    list-style: none !important;
-    list-style-type: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.6rem !important;
-}
-
-.footer-links-list li {
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* 2. Bersihkan Tampilan Link (Garis Bawah & Warna Ungu/Biru Hilang) */
-.footer-links-list a {
-    color: var(--text-muted, #64748b) !important;
-    text-decoration: none !important;
-    font-size: 0.85rem !important;
-    font-weight: 500 !important;
-    transition: color 0.2s ease !important;
-    display: inline-block !important;
-}
-
-.footer-links-list a:hover {
-    color: #02c39a !important;
-}
-
-/* 3. Rapikan Alignment Layout Footer */
-.footer {
-    background: #ffffff !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-    padding: 2.5rem 1rem 0 1rem !important;
-    margin-top: 3rem !important;
-}
-
-.footer-content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 1.8rem !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-}
-
-.footer-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-.brand-desc {
-    font-size: 0.85rem !important;
-    color: #64748b !important;
-    max-width: 420px !important;
-    margin-top: 0.5rem !important;
-    line-height: 1.5 !important;
-}
-
-.footer-group {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    gap: 3rem !important;
-    width: 100% !important;
-}
-
-.footer-col {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-.footer-heading {
-    font-size: 0.9rem !important;
-    font-weight: 700 !important;
-    color: #0f172a !important;
-    margin-bottom: 0.8rem !important;
-}
-
-/* 4. Social Icons */
-.social-icons {
-    display: flex !important;
-    gap: 12px !important;
-    justify-content: center !important;
-}
-
-.social-icon {
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 50% !important;
-    border: 1px solid #e2e8f0 !important;
-    background: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #0f172a !important;
-    text-decoration: none !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03) !important;
-    transition: all 0.2s ease !important;
-}
-
-.social-icon:hover {
-    background: #02c39a !important;
-    color: #ffffff !important;
-    border-color: #02c39a !important;
-    transform: translateY(-2px) !important;
-}
-
-/* 5. Copyright Baris Bawah */
-.footer-bottom {
-    margin-top: 2rem !important;
-    padding: 1.2rem 1rem !important;
-    border-top: 1px solid #f1f5f9 !important;
-    text-align: center !important;
-}
-
-.footer-bottom p {
-    font-size: 0.78rem !important;
-    color: #94a3b8 !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
-}
-
-@media (max-width: 480px) {
-    .footer-group {
-        gap: 1.5rem !important;
-    }
-    .footer-bottom p {
-        font-size: 0.7rem !important;
-        white-space: normal !important; /* Agar teks copyright terurai rapi jika di HP layar sangat sempit */
-    }
-}
-/* =========================================================
-   ANIMASI PANAH PENYALUR ALUR BELANJA (FLOW ARROW ANIMATION)
-   ========================================================= */
-
-/* 1. Efek Bergerak Menyamping (Push/Slide) & Berkedip */
-@keyframes flowArrowPulse {
-    0% {
-        opacity: 0.3;
-        transform: translateX(-4px) scale(0.9);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(3px) scale(1.15);
-        color: #02c39a; /* Warna hijau menyala saat bergerak */
-    }
-    100% {
-        opacity: 0.3;
-        transform: translateX(-4px) scale(0.9);
-    }
-}
-
-/* 2. Pasang Animasi ke Elemen Panah */
-.flow-arrow {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 4px !important;
-    color: #02c39a !important;
-    font-size: 0.85rem !important;
-    
-    /* Mengaktifkan animasi secara terus-menerus */
-    animation: flowArrowPulse 1.5s infinite ease-in-out !important;
-    will-change: transform, opacity;
-}
-
-/* Opsional: Berikan jeda sedikit pada panah kedua agar efek penyalurannya beruntun */
-.flow-arrow:nth-of-type(2) {
-    animation-delay: 0.3s !important;
 }
